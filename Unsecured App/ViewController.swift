@@ -15,6 +15,11 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        let moviesManager = NetworkManager<MovieService, NowPlayingResult>()
+        moviesManager.request(from: .nowPlaying(page: 1)) { result in
+            print(result)
+        }
+        
         view.backgroundColor = .systemPink
         
         let label = UILabel()

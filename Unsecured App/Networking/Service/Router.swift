@@ -60,7 +60,7 @@ extension Router {
 			}
 
 			if let urlParameters = urlParameters {
-				try JSONParameterEncoder.encode(urlRequest: &request, with: urlParameters)
+				try URLParameterEncoder.encode(urlRequest: &request, with: urlParameters)
 			}
 		} catch {
 			throw error
