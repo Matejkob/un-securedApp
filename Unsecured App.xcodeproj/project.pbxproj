@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,20 @@
 		618FF9992513858200640B41 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 618FF9972513858200640B41 /* Main.storyboard */; };
 		618FF99B2513858400640B41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 618FF99A2513858400640B41 /* Assets.xcassets */; };
 		618FF99E2513858400640B41 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 618FF99C2513858400640B41 /* LaunchScreen.storyboard */; };
+		618FF9A72513878800640B41 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 618FF9A62513878800640B41 /* SnapKit */; };
+		618FF9BA2513886B00640B41 /* PostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618FF9AA2513886B00640B41 /* PostService.swift */; };
+		618FF9BB2513886B00640B41 /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618FF9AC2513886B00640B41 /* ParameterEncoding.swift */; };
+		618FF9BC2513886B00640B41 /* URLParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618FF9AD2513886B00640B41 /* URLParameterEncoder.swift */; };
+		618FF9BD2513886B00640B41 /* EncodingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618FF9AE2513886B00640B41 /* EncodingError.swift */; };
+		618FF9BE2513886B00640B41 /* JSONParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618FF9AF2513886B00640B41 /* JSONParameterEncoder.swift */; };
+		618FF9BF2513886B00640B41 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618FF9B12513886B00640B41 /* NetworkManager.swift */; };
+		618FF9C02513886B00640B41 /* Parameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618FF9B32513886B00640B41 /* Parameters.swift */; };
+		618FF9C12513886B00640B41 /* NetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618FF9B42513886B00640B41 /* NetworkRouter.swift */; };
+		618FF9C22513886B00640B41 /* HTTPTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618FF9B52513886B00640B41 /* HTTPTask.swift */; };
+		618FF9C32513886B00640B41 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618FF9B62513886B00640B41 /* HTTPMethod.swift */; };
+		618FF9C42513886B00640B41 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618FF9B72513886B00640B41 /* Router.swift */; };
+		618FF9C52513886B00640B41 /* HTTPHeaders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618FF9B82513886B00640B41 /* HTTPHeaders.swift */; };
+		618FF9C62513886B00640B41 /* EndPointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618FF9B92513886B00640B41 /* EndPointType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +38,19 @@
 		618FF99A2513858400640B41 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		618FF99D2513858400640B41 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		618FF99F2513858400640B41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		618FF9AA2513886B00640B41 /* PostService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostService.swift; sourceTree = "<group>"; };
+		618FF9AC2513886B00640B41 /* ParameterEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParameterEncoding.swift; sourceTree = "<group>"; };
+		618FF9AD2513886B00640B41 /* URLParameterEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLParameterEncoder.swift; sourceTree = "<group>"; };
+		618FF9AE2513886B00640B41 /* EncodingError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncodingError.swift; sourceTree = "<group>"; };
+		618FF9AF2513886B00640B41 /* JSONParameterEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParameterEncoder.swift; sourceTree = "<group>"; };
+		618FF9B12513886B00640B41 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		618FF9B32513886B00640B41 /* Parameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parameters.swift; sourceTree = "<group>"; };
+		618FF9B42513886B00640B41 /* NetworkRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRouter.swift; sourceTree = "<group>"; };
+		618FF9B52513886B00640B41 /* HTTPTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPTask.swift; sourceTree = "<group>"; };
+		618FF9B62513886B00640B41 /* HTTPMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		618FF9B72513886B00640B41 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		618FF9B82513886B00640B41 /* HTTPHeaders.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPHeaders.swift; sourceTree = "<group>"; };
+		618FF9B92513886B00640B41 /* EndPointType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndPointType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				618FF9A72513878800640B41 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,6 +84,7 @@
 		618FF9902513858200640B41 /* Unsecured App */ = {
 			isa = PBXGroup;
 			children = (
+				618FF9A82513885200640B41 /* Networking */,
 				618FF9912513858200640B41 /* AppDelegate.swift */,
 				618FF9932513858200640B41 /* SceneDelegate.swift */,
 				618FF9952513858200640B41 /* ViewController.swift */,
@@ -65,6 +94,58 @@
 				618FF99F2513858400640B41 /* Info.plist */,
 			);
 			path = "Unsecured App";
+			sourceTree = "<group>";
+		};
+		618FF9A82513885200640B41 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				618FF9AB2513886B00640B41 /* Encoding */,
+				618FF9A92513886B00640B41 /* EndPoint */,
+				618FF9B02513886B00640B41 /* Manager */,
+				618FF9B22513886B00640B41 /* Service */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		618FF9A92513886B00640B41 /* EndPoint */ = {
+			isa = PBXGroup;
+			children = (
+				618FF9AA2513886B00640B41 /* PostService.swift */,
+			);
+			path = EndPoint;
+			sourceTree = "<group>";
+		};
+		618FF9AB2513886B00640B41 /* Encoding */ = {
+			isa = PBXGroup;
+			children = (
+				618FF9AE2513886B00640B41 /* EncodingError.swift */,
+				618FF9AF2513886B00640B41 /* JSONParameterEncoder.swift */,
+				618FF9AC2513886B00640B41 /* ParameterEncoding.swift */,
+				618FF9AD2513886B00640B41 /* URLParameterEncoder.swift */,
+			);
+			path = Encoding;
+			sourceTree = "<group>";
+		};
+		618FF9B02513886B00640B41 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				618FF9B12513886B00640B41 /* NetworkManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		618FF9B22513886B00640B41 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				618FF9B92513886B00640B41 /* EndPointType.swift */,
+				618FF9B82513886B00640B41 /* HTTPHeaders.swift */,
+				618FF9B62513886B00640B41 /* HTTPMethod.swift */,
+				618FF9B52513886B00640B41 /* HTTPTask.swift */,
+				618FF9B42513886B00640B41 /* NetworkRouter.swift */,
+				618FF9B32513886B00640B41 /* Parameters.swift */,
+				618FF9B72513886B00640B41 /* Router.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +164,9 @@
 			dependencies = (
 			);
 			name = "Unsecured App";
+			packageProductDependencies = (
+				618FF9A62513878800640B41 /* SnapKit */,
+			);
 			productName = "Unsecured App";
 			productReference = 618FF98E2513858200640B41 /* Unsecured App.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +195,9 @@
 				Base,
 			);
 			mainGroup = 618FF9852513858200640B41;
+			packageReferences = (
+				618FF9A52513878800640B41 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 618FF98F2513858200640B41 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -138,9 +225,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				618FF9C62513886B00640B41 /* EndPointType.swift in Sources */,
+				618FF9C22513886B00640B41 /* HTTPTask.swift in Sources */,
+				618FF9BF2513886B00640B41 /* NetworkManager.swift in Sources */,
+				618FF9C12513886B00640B41 /* NetworkRouter.swift in Sources */,
+				618FF9BE2513886B00640B41 /* JSONParameterEncoder.swift in Sources */,
 				618FF9962513858200640B41 /* ViewController.swift in Sources */,
 				618FF9922513858200640B41 /* AppDelegate.swift in Sources */,
+				618FF9BC2513886B00640B41 /* URLParameterEncoder.swift in Sources */,
+				618FF9C02513886B00640B41 /* Parameters.swift in Sources */,
+				618FF9BB2513886B00640B41 /* ParameterEncoding.swift in Sources */,
+				618FF9BD2513886B00640B41 /* EncodingError.swift in Sources */,
+				618FF9C42513886B00640B41 /* Router.swift in Sources */,
+				618FF9C32513886B00640B41 /* HTTPMethod.swift in Sources */,
+				618FF9C52513886B00640B41 /* HTTPHeaders.swift in Sources */,
 				618FF9942513858200640B41 /* SceneDelegate.swift in Sources */,
+				618FF9BA2513886B00640B41 /* PostService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +387,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9RSVCT9A9H;
 				INFOPLIST_FILE = "Unsecured App/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -294,7 +395,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mateusz.bak.Unsecured-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -305,6 +406,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9RSVCT9A9H;
 				INFOPLIST_FILE = "Unsecured App/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -312,7 +414,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mateusz.bak.Unsecured-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -338,6 +440,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		618FF9A52513878800640B41 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		618FF9A62513878800640B41 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 618FF9A52513878800640B41 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 618FF9862513858200640B41 /* Project object */;
 }
