@@ -68,6 +68,7 @@ private extension MoviesCarouselCell {
         contentView.addSubview(posterImageView)
         posterImageView.snp.makeConstraints { make in
             make.leading.top.trailing.equalToSuperview()
+            make.height.equalTo(posterImageView.snp.width).multipliedBy(1.553)
         }
     }
     

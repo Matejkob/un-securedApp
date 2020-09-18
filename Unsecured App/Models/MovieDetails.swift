@@ -9,7 +9,7 @@
 import Foundation
 
 // MARK: - MovieDetails
-struct MovieDetails: Codable {
+struct MovieDetails: Codable, Hashable {
     let adult: Bool
     let backdropPath: String?
     let budget: Int

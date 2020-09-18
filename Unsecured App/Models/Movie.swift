@@ -39,3 +39,11 @@ struct Movie: Codable, Hashable {
         case voteAverage = "vote_average"
     }
 }
+
+extension Movie {
+    static var releaseDateFormatter: DateFormatter {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-mm-dd"
+        return dateFormatter
+    }
+}

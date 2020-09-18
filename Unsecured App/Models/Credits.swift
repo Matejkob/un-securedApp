@@ -1,5 +1,5 @@
 //
-//  Genre.swift
+//  Credits.swift
 //  Unsecured App
 //
 //  Created by Mateusz Bąk on 18/09/2020.
@@ -8,7 +8,8 @@
 
 import Foundation
 
-struct Genre: Codable, Hashable {
+struct Credits: Codable, Hashable {
     let id: Int
-    let name: String
+    let cast: [Cast]
+    let crew: [Crew]
 }

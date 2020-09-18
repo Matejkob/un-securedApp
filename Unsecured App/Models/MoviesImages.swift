@@ -1,5 +1,5 @@
 //
-//  Genre.swift
+//  MoviesImages.swift
 //  Unsecured App
 //
 //  Created by Mateusz Bąk on 18/09/2020.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Genre: Codable, Hashable {
+struct MoviesImages: Codable, Hashable {
     let id: Int
-    let name: String
+    let backdrops, posters: [Backdrop]
 }

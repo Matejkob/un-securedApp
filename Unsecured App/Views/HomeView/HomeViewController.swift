@@ -11,6 +11,7 @@ import SnapKit
 
 final class HomeViewController: UIViewController {
     
+    private let movieLoading = MovieLoading()
     private var collectionView: UICollectionView!
     
     private var dataSource: UICollectionViewDiffableDataSource<Movies, Movie>?
@@ -47,7 +48,6 @@ private extension HomeViewController {
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         collectionView.backgroundColor = .systemBackground
         collectionView.contentInset = .init(top: 0, left: 0, bottom: 24, right: 0)
-        collectionView.bounces = true
         collectionView.register(SectionHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SectionHeader.reuseIdentifier)
         collectionView.register(MoviesCarouselCell.self, forCellWithReuseIdentifier: MoviesCarouselCell.reuseIdentifier)
         collectionView.register(MoviesBanerCell.self, forCellWithReuseIdentifier: MoviesBanerCell.reuseIdentifier)
@@ -70,49 +70,17 @@ private extension HomeViewController {
         return cell
     }
     
-    func createDataSource() {
-        dataSource = UICollectionViewDiffableDataSource<Movies, Movie>(collectionView: collectionView) { [weak self] collectionView, indexPath, movie in
-            guard let self = self else { return nil }
-            switch self.moviesSections[indexPath.section].getType() {
-            case .upcoming:
-                return self.configure(MoviesBanerCell.self, with: movie, for: indexPath)
-            case .nowPlaying, .popular, .topRated:
-                return self.configure(MoviesCarouselCell.self, with: movie, for: indexPath)
-            default:
-                return nil
-            }
-        }
-        
-        dataSource?.supplementaryViewProvider = { [weak self] collectionView, kind, indexPath in
-            guard let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: SectionHeader.reuseIdentifier, for: indexPath) as? SectionHeader else {
-                return nil
-            }
-            guard let firstMovie = self?.dataSource?.itemIdentifier(for: indexPath) else { return nil }
-            guard let section = self?.dataSource?.snapshot().sectionIdentifier(containingItem: firstMovie) else { return nil }
-            guard let type = section.getType() else { return nil }
-            
-            sectionHeader.configureView(with: .init(title: type.title, subtitle: type.subtitle))
-            
-            return sectionHeader
-        }
-    }
-    
-    func reloadData() {
-        var snapshot = NSDiffableDataSourceSnapshot<Movies, Movie>()
-        snapshot.appendSections(moviesSections)
-    
-        moviesSections.forEach { snapshot.appendItems($0.results, toSection: $0) }
-        
-        dataSource?.apply(snapshot)
-    }
-    
     func fetchData() {
+        movieLoading.show(in: view)
+        
         fetchNowPlayingMovies()
         fetchPopularMovies()
         fetchTopRatedMovies()
         fetchUpcomingMovies()
         
         dispatchGroup.notify(queue: .main) { [weak self] in
+            self?.movieLoading.dissmis()
+            
             self?.moviesSections.sort { first, second in
                 guard let firstType = first.getType(), let secondType = second.getType() else { return true }
                 return firstType.rawValue < secondType.rawValue
@@ -183,6 +151,44 @@ private extension HomeViewController {
         }
     }
     
+    func createDataSource() {
+        dataSource = UICollectionViewDiffableDataSource<Movies, Movie>(collectionView: collectionView) { [weak self] collectionView, indexPath, movie in
+            guard let self = self else { return nil }
+            switch self.moviesSections[indexPath.section].getType() {
+            case .upcoming:
+                return self.configure(MoviesBanerCell.self, with: movie, for: indexPath)
+            case .nowPlaying, .popular, .topRated:
+                return self.configure(MoviesCarouselCell.self, with: movie, for: indexPath)
+            default:
+                return nil
+            }
+        }
+        
+        dataSource?.supplementaryViewProvider = { [weak self] collectionView, kind, indexPath in
+            guard let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: SectionHeader.reuseIdentifier, for: indexPath) as? SectionHeader else {
+                return nil
+            }
+            guard let firstMovie = self?.dataSource?.itemIdentifier(for: indexPath) else { return nil }
+            guard let section = self?.dataSource?.snapshot().sectionIdentifier(containingItem: firstMovie) else { return nil }
+            guard let type = section.getType() else { return nil }
+            
+            sectionHeader.configureView(with: .init(title: type.title, subtitle: type.subtitle))
+            
+            return sectionHeader
+        }
+    }
+    
+    func reloadData() {
+        var snapshot = NSDiffableDataSourceSnapshot<Movies, Movie>()
+        snapshot.appendSections(moviesSections)
+    
+        moviesSections.forEach { snapshot.appendItems($0.results, toSection: $0) }
+        
+        dataSource?.apply(snapshot)
+    }
+}
+
+private extension HomeViewController {
     func creatCompositionalLayout() -> UICollectionViewLayout {
         let layout = UICollectionViewCompositionalLayout { [weak self] sectionIndex, layoutEnvironment in
             guard let self = self else { return nil }
@@ -209,18 +215,19 @@ private extension HomeViewController {
         let layoutItem = NSCollectionLayoutItem(layoutSize: itemSize)
         layoutItem.contentInsets = .init(top: 0.0, leading: 6.0, bottom: 0.0, trailing: 6.0)
         
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.9), heightDimension: .fractionalWidth(0.85 * 0.56222))
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.85), heightDimension: .fractionalWidth(0.85 * 0.56222))
         let layoutGroup = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [layoutItem])
         
         let layoutSection = NSCollectionLayoutSection(group: layoutGroup)
         layoutSection.orthogonalScrollingBehavior = .groupPagingCentered
         
-        let layoutSectionHeaderSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.93), heightDimension: .estimated(80))
+        let layoutSectionHeaderSize = NSCollectionLayoutSize(widthDimension: .absolute(UIScreen.main.bounds.width), heightDimension: .estimated(80))
         let layoutSectionHeader = NSCollectionLayoutBoundarySupplementaryItem(
             layoutSize: layoutSectionHeaderSize,
             elementKind: UICollectionView.elementKindSectionHeader,
             alignment: .top
         )
+        layoutSectionHeader.contentInsets = .init(top: 0, leading: 14, bottom: 0, trailing: -5)
         layoutSection.boundarySupplementaryItems = [layoutSectionHeader]
         
         return layoutSection
@@ -238,12 +245,13 @@ private extension HomeViewController {
         layoutSection.orthogonalScrollingBehavior = .continuousGroupLeadingBoundary
         layoutSection.contentInsets = .init(top: 0, leading: 16, bottom: 0, trailing: 16)
         
-        let layoutSectionHeaderSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.93), heightDimension: .estimated(80))
+        let layoutSectionHeaderSize = NSCollectionLayoutSize(widthDimension: .absolute(UIScreen.main.bounds.width), heightDimension: .estimated(80))
         let layoutSectionHeader = NSCollectionLayoutBoundarySupplementaryItem(
             layoutSize: layoutSectionHeaderSize,
             elementKind: UICollectionView.elementKindSectionHeader,
             alignment: .top
         )
+        layoutSectionHeader.contentInsets = .init(top: 0, leading: 14, bottom: 0, trailing: -5)
         layoutSection.boundarySupplementaryItems = [layoutSectionHeader]
         
         return layoutSection
@@ -253,6 +261,6 @@ private extension HomeViewController {
 extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = dataSource?.itemIdentifier(for: indexPath)
-        print(cell?.id)
+        navigationController?.pushViewController(MovieDetailsViewController(movie: cell!), animated: true)
     }
 }
