@@ -1,5 +1,5 @@
 //
-//  NowPlaying.swift
+//  Movies.swift
 //  Unsecured App
 //
 //  Created by Mateusz Bąk on 17/09/2020.
@@ -8,20 +8,14 @@
 
 import Foundation
 
-struct NowPlayingResult: Codable {
+struct Movies: Codable, Hashable {
     let page: Int
     let results: [MovieListResult]
-    let dates: Dates
     let totalPages, totalResults: Int
 
     enum CodingKeys: String, CodingKey {
-        case page, results, dates
+        case page, results
         case totalPages = "total_pages"
         case totalResults = "total_results"
     }
-}
-
-// MARK: - Dates
-struct Dates: Codable {
-    let maximum, minimum: String
 }

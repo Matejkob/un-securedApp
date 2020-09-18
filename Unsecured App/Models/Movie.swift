@@ -1,5 +1,5 @@
 //
-//  MovieListResult.swift
+//  Movie.swift
 //  Unsecured App
 //
 //  Created by Mateusz Bąk on 17/09/2020.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MovieListResult: Codable {
+struct Movie: Codable, Hashable {
     let posterPath: String?
     let adult: Bool
     let overview, releaseDate: String
