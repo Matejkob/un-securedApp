@@ -199,7 +199,7 @@ private extension HomeViewController {
             let section = self.moviesSections[sectionIndex]
             switch section.getType() {
             case .upcoming:
-                return self.creatBannerSection(using: section)
+                return self.creatBannerSection(using: layoutEnvironment)
             case .nowPlaying, .popular, .topRated:
                 return self.createCarouselSection(using: section)
             default:
@@ -214,16 +214,20 @@ private extension HomeViewController {
         return layout
     }
     
-    func creatBannerSection(using section: Movies) -> NSCollectionLayoutSection {
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
+    func creatBannerSection(using environment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection {
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
         let layoutItem = NSCollectionLayoutItem(layoutSize: itemSize)
-        layoutItem.contentInsets = .init(top: 0.0, leading: 6.0, bottom: 0.0, trailing: 6.0)
-        
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.85), heightDimension: .fractionalWidth(0.85 * 0.56222))
+        layoutItem.contentInsets = .init(top: 0, leading: 6, bottom: 0, trailing: 6)
+
+        let groupWidth = environment.container.contentSize.width * 0.85
+        let groupSize = NSCollectionLayoutSize(widthDimension: .absolute(groupWidth), heightDimension: .absolute(groupWidth * 0.56222))
         let layoutGroup = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [layoutItem])
-        
+
         let layoutSection = NSCollectionLayoutSection(group: layoutGroup)
-        layoutSection.orthogonalScrollingBehavior = .groupPagingCentered
+
+        let sectionSideInset = (environment.container.contentSize.width - groupWidth) / 2
+        layoutSection.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: sectionSideInset, bottom: 0, trailing: sectionSideInset)
+        layoutSection.orthogonalScrollingBehavior = .groupPaging
         
         let layoutSectionHeaderSize = NSCollectionLayoutSize(widthDimension: .absolute(UIScreen.main.bounds.width), heightDimension: .estimated(80))
         let layoutSectionHeader = NSCollectionLayoutBoundarySupplementaryItem(
@@ -233,7 +237,7 @@ private extension HomeViewController {
         )
         layoutSectionHeader.contentInsets = .init(top: 0, leading: 14, bottom: 0, trailing: -5)
         layoutSection.boundarySupplementaryItems = [layoutSectionHeader]
-        
+
         return layoutSection
     }
     

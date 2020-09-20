@@ -38,8 +38,18 @@ extension BackdropBanerCell {
 
 private extension BackdropBanerCell {
     func setupView() {
+        setupContentView()
         setupContentStackView()
         setupBackdropImageView()
+    }
+    
+    func setupContentView() {
+        contentView.backgroundColor = .tertiarySystemBackground
+        contentView.layer.cornerRadius = 12.0
+        contentView.layer.shadowColor = UIColor.black.cgColor
+        contentView.layer.shadowRadius = 2.0
+        contentView.layer.shadowOffset = .init(width: 0, height: 2)
+        contentView.layer.shadowOpacity = 0.24
     }
     
     func setupContentStackView() {
@@ -53,6 +63,8 @@ private extension BackdropBanerCell {
     
     func setupBackdropImageView() {
         backdropImageView.contentMode = .scaleAspectFill
+        backdropImageView.clipsToBounds = true
+        backdropImageView.layer.cornerRadius = 12.0
         
         contentStackView.addArrangedSubview(backdropImageView)
     }

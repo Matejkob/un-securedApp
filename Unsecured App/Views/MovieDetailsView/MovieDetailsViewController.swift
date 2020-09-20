@@ -72,6 +72,7 @@ private extension MovieDetailsViewController {
     
     func setupCollectionView() {
         collectionView = .init(frame: .zero, collectionViewLayout: creatCompositionalLayout())
+        collectionView.delegate = self
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         collectionView.backgroundColor = .systemBackground
         collectionView.contentInset = .init(top: 0, left: 0, bottom: 24, right: 0)
@@ -242,7 +243,7 @@ private extension MovieDetailsViewController {
             let section = self.sections[sectionIndex]
             switch section.type {
             case .backdropGallery:
-                return self.backdropGalllerySection()
+                return self.backdropGalllerySection(with: layoutEnvironment)
             case .details:
                 return self.createDetailsSection()
             case .cast:
@@ -259,15 +260,20 @@ private extension MovieDetailsViewController {
         return layout
     }
     
-    func backdropGalllerySection() -> NSCollectionLayoutSection {
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
+    func backdropGalllerySection(with environment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection {
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
         let layoutItem = NSCollectionLayoutItem(layoutSize: itemSize)
-        
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalWidth(0.56222))
+        layoutItem.contentInsets = .init(top: 0, leading: 6, bottom: 0, trailing: 6)
+
+        let groupWidth = environment.container.contentSize.width * 0.92
+        let groupSize = NSCollectionLayoutSize(widthDimension: .absolute(groupWidth), heightDimension: .absolute(groupWidth * 0.56222))
         let layoutGroup = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [layoutItem])
-        
+
         let layoutSection = NSCollectionLayoutSection(group: layoutGroup)
-        layoutSection.orthogonalScrollingBehavior = .groupPagingCentered
+
+        let sectionSideInset = (environment.container.contentSize.width - groupWidth) / 2
+        layoutSection.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: sectionSideInset, bottom: 0, trailing: sectionSideInset)
+        layoutSection.orthogonalScrollingBehavior = .groupPaging
         
         let layoutSectionHeaderSize = NSCollectionLayoutSize(widthDimension: .absolute(UIScreen.main.bounds.width), heightDimension: .estimated(80))
         let layoutSectionHeader = NSCollectionLayoutBoundarySupplementaryItem(
@@ -277,7 +283,7 @@ private extension MovieDetailsViewController {
         )
         layoutSectionHeader.contentInsets = .init(top: 0, leading: 14, bottom: 0, trailing: -5)
         layoutSection.boundarySupplementaryItems = [layoutSectionHeader]
-        
+
         return layoutSection
     }
     
