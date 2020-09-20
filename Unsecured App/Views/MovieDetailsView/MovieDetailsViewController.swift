@@ -372,7 +372,21 @@ private extension MovieDetailsViewController {
 extension MovieDetailsViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let selectedView = dataSource?.itemIdentifier(for: indexPath) else { return }
-        guard let selectedViewMovieModel = selectedView.movie else { return }
-        navigationController?.pushViewController(MovieDetailsViewController(movie: selectedViewMovieModel), animated: true)
+            
+        if let selectedViewMovieModel = selectedView.movie {
+            navigationController?.pushViewController(MovieDetailsViewController(movie: selectedViewMovieModel), animated: true)
+        }
+            
+        if let selectedBackdrop = selectedView.backdrop, let imageURL = URL(string: "https://image.tmdb.org/t/p/original" + selectedBackdrop.filePath) {
+            let imageViewer = ImageViewer(imageURL: imageURL)
+            imageViewer.modalPresentationStyle = .pageSheet
+            present(imageViewer, animated: true)
+        }
+            
+        if let profilePath = selectedView.cast?.profilePath, let imageURL = URL(string: "https://image.tmdb.org/t/p/original" + profilePath) {
+            let imageViewer = ImageViewer(imageURL: imageURL)
+            imageViewer.modalPresentationStyle = .pageSheet
+            present(imageViewer, animated: true)
+        }
     }
 }

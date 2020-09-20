@@ -123,14 +123,6 @@
 			path = MovieDetailsView;
 			sourceTree = "<group>";
 		};
-		610298CA2514F2D80032F800 /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-				610298CB2514F31F0032F800 /* movieLoading.json */,
-			);
-			path = "New Group";
-			sourceTree = "<group>";
-		};
 		610298CD2514F43B0032F800 /* MovieLoading */ = {
 			isa = PBXGroup;
 			children = (
@@ -158,7 +150,6 @@
 		618FF9902513858200640B41 /* Unsecured App */ = {
 			isa = PBXGroup;
 			children = (
-				610298CA2514F2D80032F800 /* New Group */,
 				61C7F66125139A0C00CB7208 /* Utils */,
 				618FF9C725138CD800640B41 /* Models */,
 				618FF9A82513885200640B41 /* Networking */,
@@ -242,6 +233,7 @@
 		618FF9CE251397BC00640B41 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				610298CB2514F31F0032F800 /* movieLoading.json */,
 				618FF9912513858200640B41 /* AppDelegate.swift */,
 				618FF99A2513858400640B41 /* Assets.xcassets */,
 				618FF99F2513858400640B41 /* Info.plist */,
