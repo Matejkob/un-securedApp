@@ -33,11 +33,11 @@ extension MoviesBanerCell: SelfConfiguringCell {
     func configure(with movie: Movie) {
         titleLabel.text = movie.title
         releaseDateLabel.text = "Premiera za: \(movie.releaseDate) dni"
-        guard let backdropPath = movie.backdropPath, let url = URL(string: "https://image.tmdb.org/t/p/original" + backdropPath) else {
+        guard let backdropPath = movie.backdropPath, let url = URL(string: MoviesImages.baseUrl + backdropPath) else {
             backdropImageView.image = nil
             return
         }
-        backdropImageView.kf.setImage(with: url)
+        backdropImageView.kf.setImage(with: url, options: [.transition(.fade(0.75))])
     }
 }
 
@@ -63,6 +63,7 @@ private extension MoviesBanerCell {
         backdropImageView.contentMode = .scaleAspectFill
         backdropImageView.clipsToBounds = true
         backdropImageView.layer.cornerRadius = 12.0
+        backdropImageView.kf.indicatorType = .activity
 
         contentView.addSubview(backdropImageView)
         backdropImageView.snp.makeConstraints { make in

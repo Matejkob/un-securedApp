@@ -36,14 +36,14 @@ extension CastCell {
     func configure(with cast: Cast) {
         nameLabel.text = cast.name
         characterLabel.text = cast.character
-        guard let profilePath = cast.profilePath, let url = URL(string: "https://image.tmdb.org/t/p/original" + profilePath) else {
+        guard let profilePath = cast.profilePath, let url = URL(string: MoviesImages.baseUrl + profilePath) else {
             profileImageView.image = UIImage(systemName: "person.crop.circle.fill")?.withTintColor(.label)
             profileImageView.tintColor = .label
             profileImageView.contentMode = .scaleAspectFit
             return
         }
         profileImageView.contentMode = .scaleAspectFill
-        profileImageView.kf.setImage(with: url)
+        profileImageView.kf.setImage(with: url, options: [.transition(.fade(0.75))])
     }
 }
 

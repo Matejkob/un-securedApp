@@ -28,11 +28,11 @@ final class BackdropBanerCell: UICollectionViewCell {
 
 extension BackdropBanerCell {
     func configure(with backdrop: Backdrop) {
-        guard let url = URL(string: "https://image.tmdb.org/t/p/original" + backdrop.filePath) else {
+        guard let url = URL(string: MoviesImages.baseUrl + backdrop.filePath) else {
             backdropImageView.image = nil
             return
         }
-        backdropImageView.kf.setImage(with: url)
+        backdropImageView.kf.setImage(with: url, options: [.transition(.fade(0.75))])
     }
 }
 
@@ -65,6 +65,7 @@ private extension BackdropBanerCell {
         backdropImageView.contentMode = .scaleAspectFill
         backdropImageView.clipsToBounds = true
         backdropImageView.layer.cornerRadius = 12.0
+        backdropImageView.kf.indicatorType = .activity
         
         contentStackView.addArrangedSubview(backdropImageView)
     }

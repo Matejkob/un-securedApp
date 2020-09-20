@@ -51,6 +51,7 @@
 		61D0B126251540340089AF73 /* MainHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D0B125251540340089AF73 /* MainHeader.swift */; };
 		61D0B12825154E800089AF73 /* CastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D0B12725154E800089AF73 /* CastCell.swift */; };
 		61D0B12A251557A20089AF73 /* TextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D0B129251557A20089AF73 /* TextCell.swift */; };
+		61D0B12C2517702D0089AF73 /* ImageViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D0B12B2517702D0089AF73 /* ImageViewer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -97,6 +98,7 @@
 		61D0B125251540340089AF73 /* MainHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainHeader.swift; sourceTree = "<group>"; };
 		61D0B12725154E800089AF73 /* CastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastCell.swift; sourceTree = "<group>"; };
 		61D0B129251557A20089AF73 /* TextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextCell.swift; sourceTree = "<group>"; };
+		61D0B12B2517702D0089AF73 /* ImageViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -257,6 +259,7 @@
 				61C7F6702513E70600CB7208 /* Headers */,
 				618FF9D1251397E000640B41 /* HomeView */,
 				610298C42514EEA50032F800 /* MovieDetailsView */,
+				61D0B12D251770300089AF73 /* ImageViewer */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -296,6 +299,14 @@
 				61D0B125251540340089AF73 /* MainHeader.swift */,
 			);
 			path = Headers;
+			sourceTree = "<group>";
+		};
+		61D0B12D251770300089AF73 /* ImageViewer */ = {
+			isa = PBXGroup;
+			children = (
+				61D0B12B2517702D0089AF73 /* ImageViewer.swift */,
+			);
+			path = ImageViewer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -415,6 +426,7 @@
 				618FF9942513858200640B41 /* SceneDelegate.swift in Sources */,
 				61D0B126251540340089AF73 /* MainHeader.swift in Sources */,
 				610298BF2514EC660032F800 /* ProductionCompany.swift in Sources */,
+				61D0B12C2517702D0089AF73 /* ImageViewer.swift in Sources */,
 				618FF9CB25138D8400640B41 /* Movie.swift in Sources */,
 				61D0B12825154E800089AF73 /* CastCell.swift in Sources */,
 			);
