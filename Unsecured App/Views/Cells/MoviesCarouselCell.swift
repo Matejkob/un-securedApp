@@ -35,7 +35,10 @@ extension MoviesCarouselCell: SelfConfiguringCell {
     func configure(with movie: Movie) {
         ratingLabel.text = "\(movie.voteAverage)"
         titleLabel.text = movie.title
-        guard let posterPath = movie.posterPath, let url = URL(string: "https://image.tmdb.org/t/p/original" + posterPath) else { return }
+        guard let posterPath = movie.posterPath, let url = URL(string: "https://image.tmdb.org/t/p/original" + posterPath) else {
+            posterImageView.image = nil
+            return
+        }
         posterImageView.kf.setImage(with: url)
     }
 }

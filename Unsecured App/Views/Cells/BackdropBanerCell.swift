@@ -28,7 +28,10 @@ final class BackdropBanerCell: UICollectionViewCell {
 
 extension BackdropBanerCell {
     func configure(with backdrop: Backdrop) {
-        guard let url = URL(string: "https://image.tmdb.org/t/p/original" + backdrop.filePath) else { return }
+        guard let url = URL(string: "https://image.tmdb.org/t/p/original" + backdrop.filePath) else {
+            backdropImageView.image = nil
+            return
+        }
         backdropImageView.kf.setImage(with: url)
     }
 }

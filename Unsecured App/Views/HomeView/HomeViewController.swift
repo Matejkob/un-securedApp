@@ -96,6 +96,7 @@ private extension HomeViewController {
         moviesNetworkManager.request(from: .nowPlaying(page: 1)) { [weak self] result in
             switch result {
             case .success(let nowPlayingMoviesResult):
+                if nowPlayingMoviesResult.results.isEmpty { return }
                 var nowPlayingMovies = nowPlayingMoviesResult
                 nowPlayingMovies.setType(.nowPlaying)
                 self?.moviesSections.append(nowPlayingMovies)
@@ -111,6 +112,7 @@ private extension HomeViewController {
         moviesNetworkManager.request(from: .popular(page: 1)) { [weak self] result in
             switch result {
             case .success(let popularMoviesResult):
+                if popularMoviesResult.results.isEmpty { break }
                 var popularMovies = popularMoviesResult
                 popularMovies.setType(.popular)
                 self?.moviesSections.append(popularMovies)
@@ -126,6 +128,7 @@ private extension HomeViewController {
         moviesNetworkManager.request(from: .topRated(page: 1)) { [weak self] result in
             switch result {
             case .success(let topRatedMoviesResult):
+                if topRatedMoviesResult.results.isEmpty { break }
                 var topRatedMovies = topRatedMoviesResult
                 topRatedMovies.setType(.topRated)
                 self?.moviesSections.append(topRatedMovies)
@@ -141,6 +144,7 @@ private extension HomeViewController {
         moviesNetworkManager.request(from: .upcoming(page: 1)) { [weak self] result in
             switch result {
             case .success(let upcomingMoviesResult):
+                if upcomingMoviesResult.results.isEmpty { return }
                 var upcomingMovies = upcomingMoviesResult
                 upcomingMovies.setType(.upcoming)
                 self?.moviesSections.append(upcomingMovies)
@@ -204,7 +208,7 @@ private extension HomeViewController {
         }
         
         let config = UICollectionViewCompositionalLayoutConfiguration()
-        config.interSectionSpacing = 20
+        config.interSectionSpacing = 30
     
         layout.configuration = config
         return layout
@@ -260,7 +264,7 @@ private extension HomeViewController {
 
 extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = dataSource?.itemIdentifier(for: indexPath)
-        navigationController?.pushViewController(MovieDetailsViewController(movie: cell!), animated: true)
+        guard let selectedMovie = dataSource?.itemIdentifier(for: indexPath) else { return }
+        navigationController?.pushViewController(MovieDetailsViewController(movie: selectedMovie), animated: true)
     }
 }

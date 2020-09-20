@@ -33,7 +33,10 @@ extension MoviesBanerCell: SelfConfiguringCell {
     func configure(with movie: Movie) {
         titleLabel.text = movie.title
         releaseDateLabel.text = "Premiera za: \(movie.releaseDate) dni"
-        guard let backdropPath = movie.backdropPath, let url = URL(string: "https://image.tmdb.org/t/p/original" + backdropPath) else { return }
+        guard let backdropPath = movie.backdropPath, let url = URL(string: "https://image.tmdb.org/t/p/original" + backdropPath) else {
+            backdropImageView.image = nil
+            return
+        }
         backdropImageView.kf.setImage(with: url)
     }
 }

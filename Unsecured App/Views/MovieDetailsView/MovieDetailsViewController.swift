@@ -58,11 +58,6 @@ final class MovieDetailsViewController: UIViewController {
         setupView()
         fetchData()
     }
-    
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//
-//    }
 }
 
 private extension MovieDetailsViewController {
@@ -83,7 +78,9 @@ private extension MovieDetailsViewController {
         collectionView.register(SectionHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SectionHeader.reuseIdentifier)
         collectionView.register(MainHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: MainHeader.reuseIdentifier)
         collectionView.register(BackdropBanerCell.self, forCellWithReuseIdentifier: BackdropBanerCell.reuseIdentifier)
+        collectionView.register(CastCell.self, forCellWithReuseIdentifier: CastCell.reuseIdentifier)
         collectionView.register(MoviesCarouselCell.self, forCellWithReuseIdentifier: MoviesCarouselCell.reuseIdentifier)
+        collectionView.register(TextCell.self, forCellWithReuseIdentifier: TextCell.reuseIdentifier)
         
         view.addSubview(collectionView)
         collectionView.snp.makeConstraints { make in
@@ -97,8 +94,8 @@ private extension MovieDetailsViewController {
         movieLoading.show(in: view)
         
         fetchImages()
-//        fetchDetails()
-//        fetchCredits()
+        fetchDetails()
+        fetchCredits()
         fetchRecommendations()
         
         dispatchGroup.notify(queue: .main) { [weak self] in
@@ -119,6 +116,7 @@ private extension MovieDetailsViewController {
             switch result {
             case .success(let moviesImages):
                 let views = moviesImages.backdrops.map { View(backdrop: $0) }
+                if views.isEmpty { break }
                 var releaseDateString = ""
                 if let releaseDate = Movie.releaseDateFormatter.date(from: self.movie.releaseDate) {
                     releaseDateString = "Premiera: \(Self.dateFormatter.string(from: releaseDate))"
@@ -139,8 +137,8 @@ private extension MovieDetailsViewController {
             switch result {
             case .success(let movieDetails):
                 let view = View(movieDetails: movieDetails)
-                let viewModel = ViewModel(type: .backdropGallery, views: [view])
-                self?.sections.append(viewModel)
+                let viewModel = ViewModel(title: "Opis", type: .details, views: [view])
+                if let overview = movieDetails.overview, !overview.isEmpty { self?.sections.append(viewModel) }
             case .failure(let error):
                 print(error)
             }
@@ -155,6 +153,7 @@ private extension MovieDetailsViewController {
             switch result {
             case .success(let credits):
                 let views = credits.cast.map { View(cast: $0) }
+                if views.isEmpty { break }
                 let viewModel = ViewModel(title: "Obsada", type: .cast, views: views)
                 self?.sections.append(viewModel)
             case .failure(let error):
@@ -171,7 +170,8 @@ private extension MovieDetailsViewController {
             switch result {
             case .success(let recommendationMovies):
                 let views = recommendationMovies.results.map { View(movie: $0) }
-                let viewModel = ViewModel(title: "Rekomendowane", subtitle: "Co to jest?!", type: .recommendationMovies, views: views)
+                if views.isEmpty { break }
+                let viewModel = ViewModel(title: "Rekomendowane", subtitle: "Podobne do \(self?.movie.title ?? "")", type: .recommendationMovies, views: views)
                 self?.sections.append(viewModel)
             case .failure(let error):
                 print(error)
@@ -188,15 +188,18 @@ private extension MovieDetailsViewController {
                 guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BackdropBanerCell.reuseIdentifier, for: indexPath) as? BackdropBanerCell else { fatalError("Unable to dequeue BackdropBanerCell") }
                 if let backdrop = view.backdrop { cell.configure(with: backdrop) }
                 return cell
+            case .details:
+                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TextCell.reuseIdentifier, for: indexPath) as? TextCell else { fatalError("Unable to dequeue TextCell") }
+                if let movieDetails = view.movieDetails { cell.configure(with: movieDetails) }
+                return cell
+            case .cast:
+                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CastCell.reuseIdentifier, for: indexPath) as? CastCell else { fatalError("Unable to dequeue CastCell") }
+                if let cast = view.cast { cell.configure(with: cast) }
+                return cell
             case .recommendationMovies:
-                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MoviesCarouselCell.reuseIdentifier, for: indexPath) as? MoviesCarouselCell else { fatalError("Unable to dequeue BackdropBanerCell") }
+                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MoviesCarouselCell.reuseIdentifier, for: indexPath) as? MoviesCarouselCell else { fatalError("Unable to dequeue MoviesCarouselCell") }
                 if let movie = view.movie { cell.configure(with: movie) }
                 return cell
-            default:
-                guard let movie = view.movie else {
-                    return self.configure(MoviesCarouselCell.self, with: .init(posterPath: "", adult: true, overview: "asd", releaseDate: "", genreIDS: [], id: 12, originalTitle: "elo", originalLanguage: "saf", title: "asdaf", backdropPath: "", popularity: 23, voteCount: 24, video: false, voteAverage: 5.2), for: indexPath)
-                }
-                return self.configure(MoviesCarouselCell.self, with: movie, for: indexPath)
             }
         }
         
@@ -212,25 +215,14 @@ private extension MovieDetailsViewController {
                 }
                 sectionHeader.configureView(with: .init(title: title, subtitle: viewModel.subtitle ?? ""))
                 return sectionHeader
-            case .recommendationMovies:
+            case .recommendationMovies, .cast, .details:
                 guard let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: SectionHeader.reuseIdentifier, for: indexPath) as? SectionHeader else {
                     return nil
                 }
                 sectionHeader.configureView(with: .init(title: title, subtitle: viewModel.subtitle ?? ""))
                 return sectionHeader
-            default:
-                return nil
             }
         }
-    }
-    
-    func configure<T: SelfConfiguringCell>(_ cellType: T.Type, with movie: Movie, for indexPath: IndexPath) -> T {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellType.reuseIdentifier, for: indexPath) as? T else {
-            fatalError("Unable to dequeue \(cellType)")
-        }
-        
-        cell.configure(with: movie)
-        return cell
     }
     
     func reloadData() {
@@ -251,15 +243,17 @@ private extension MovieDetailsViewController {
             switch section.type {
             case .backdropGallery:
                 return self.backdropGalllerySection()
+            case .details:
+                return self.createDetailsSection()
+            case .cast:
+                return self.createCastSection()
             case .recommendationMovies:
-                return self.createCarouselSection()
-            default:
                 return self.createCarouselSection()
             }
         }
         
         let config = UICollectionViewCompositionalLayoutConfiguration()
-        config.interSectionSpacing = 24
+        config.interSectionSpacing = 20
     
         layout.configuration = config
         return layout
@@ -274,6 +268,54 @@ private extension MovieDetailsViewController {
         
         let layoutSection = NSCollectionLayoutSection(group: layoutGroup)
         layoutSection.orthogonalScrollingBehavior = .groupPagingCentered
+        
+        let layoutSectionHeaderSize = NSCollectionLayoutSize(widthDimension: .absolute(UIScreen.main.bounds.width), heightDimension: .estimated(80))
+        let layoutSectionHeader = NSCollectionLayoutBoundarySupplementaryItem(
+            layoutSize: layoutSectionHeaderSize,
+            elementKind: UICollectionView.elementKindSectionHeader,
+            alignment: .top
+        )
+        layoutSectionHeader.contentInsets = .init(top: 0, leading: 14, bottom: 0, trailing: -5)
+        layoutSection.boundarySupplementaryItems = [layoutSectionHeader]
+        
+        return layoutSection
+    }
+    
+    func createDetailsSection() -> NSCollectionLayoutSection {
+        let heightDimension = NSCollectionLayoutDimension.estimated(300)
+        
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: heightDimension)
+        let layoutItem = NSCollectionLayoutItem(layoutSize: itemSize)
+        
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: heightDimension)
+        let layoutGroup = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: layoutItem, count: 1)
+        
+        let layoutSection = NSCollectionLayoutSection(group: layoutGroup)
+        layoutSection.contentInsets = .init(top: 0, leading: 18, bottom: 0, trailing: 18)
+        
+        let layoutSectionHeaderSize = NSCollectionLayoutSize(widthDimension: .absolute(UIScreen.main.bounds.width), heightDimension: .estimated(80))
+        let layoutSectionHeader = NSCollectionLayoutBoundarySupplementaryItem(
+            layoutSize: layoutSectionHeaderSize,
+            elementKind: UICollectionView.elementKindSectionHeader,
+            alignment: .top
+        )
+        layoutSectionHeader.contentInsets = .init(top: 0, leading: 14, bottom: 0, trailing: -5)
+        layoutSection.boundarySupplementaryItems = [layoutSectionHeader]
+        
+        return layoutSection
+    }
+    
+    func createCastSection() -> NSCollectionLayoutSection {
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
+        let layoutItem = NSCollectionLayoutItem(layoutSize: itemSize)
+        layoutItem.contentInsets = .init(top: 0.0, leading: 4.0, bottom: 0.0, trailing: 4.0)
+        
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1 / 4.4), heightDimension: .estimated(190))
+        let layoutGroup = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [layoutItem])
+        
+        let layoutSection = NSCollectionLayoutSection(group: layoutGroup)
+        layoutSection.orthogonalScrollingBehavior = .continuousGroupLeadingBoundary
+        layoutSection.contentInsets = .init(top: 0, leading: 16, bottom: 0, trailing: 16)
         
         let layoutSectionHeaderSize = NSCollectionLayoutSize(widthDimension: .absolute(UIScreen.main.bounds.width), heightDimension: .estimated(80))
         let layoutSectionHeader = NSCollectionLayoutBoundarySupplementaryItem(
@@ -318,5 +360,13 @@ private extension MovieDetailsViewController {
         dateFormatter.locale = Locale(identifier: "pl-PL")
         dateFormatter.dateFormat = "d MMMM yyyy"
         return dateFormatter
+    }
+}
+
+extension MovieDetailsViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let selectedView = dataSource?.itemIdentifier(for: indexPath) else { return }
+        guard let selectedViewMovieModel = selectedView.movie else { return }
+        navigationController?.pushViewController(MovieDetailsViewController(movie: selectedViewMovieModel), animated: true)
     }
 }

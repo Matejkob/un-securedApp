@@ -57,7 +57,7 @@ extension Movies {
             case .popular:
                 return "Lista najpopularniejszych filmów"
             case .topRated:
-                return "Największe hity według naszych Was"
+                return "Największe hity według Was"
             case .upcoming:
                 return "Przygotuj się na nadchodzące premiery"
             }
