@@ -119,7 +119,7 @@ private extension MovieDetailsViewController {
                 let views = moviesImages.backdrops.map { View(backdrop: $0) }
                 if views.isEmpty { break }
                 var releaseDateString = ""
-                if let releaseDate = Movie.releaseDateFormatter.date(from: self.movie.releaseDate) {
+                if let releaseDateStr = self.movie.releaseDate, let releaseDate = Movie.releaseDateFormatter.date(from: releaseDateStr) {
                     releaseDateString = "Premiera: \(Self.dateFormatter.string(from: releaseDate))"
                 }
                 let viewModel = ViewModel(title: self.movie.title, subtitle: releaseDateString, type: .backdropGallery, views: views)

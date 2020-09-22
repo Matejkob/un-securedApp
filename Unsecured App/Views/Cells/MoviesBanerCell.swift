@@ -16,7 +16,6 @@ final class MoviesBanerCell: UICollectionViewCell {
     private let backdropImageView = UIImageView()
     private let labelsStackView = UIStackView()
     private let titleLabel = UILabel()
-    private let releaseDateLabel = UILabel()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -32,7 +31,6 @@ final class MoviesBanerCell: UICollectionViewCell {
 extension MoviesBanerCell: SelfConfiguringCell {
     func configure(with movie: Movie) {
         titleLabel.text = movie.title
-        releaseDateLabel.text = "Premiera za: \(movie.releaseDate) dni"
         guard let backdropPath = movie.backdropPath, let url = URL(string: MoviesImages.baseUrl + backdropPath) else {
             backdropImageView.image = nil
             return
@@ -47,7 +45,6 @@ private extension MoviesBanerCell {
         setupBackdropImageView()
         setupLabelsStackView()
         setupTitleLabel()
-//        setupReleaseDateLabel()
     }
     
     func setupContentView() {
@@ -86,13 +83,5 @@ private extension MoviesBanerCell {
         titleLabel.textAlignment = .center
         
         labelsStackView.addArrangedSubview(titleLabel)
-    }
-    
-    func setupReleaseDateLabel() {
-        releaseDateLabel.font = UIFontMetrics.default.scaledFont(for: .systemFont(ofSize: 13))
-        releaseDateLabel.textColor = .white
-        releaseDateLabel.textAlignment = .center
-        
-        labelsStackView.addArrangedSubview(releaseDateLabel)
     }
 }

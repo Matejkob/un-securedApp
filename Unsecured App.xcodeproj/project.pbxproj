@@ -18,6 +18,10 @@
 		610298CF2514F45C0032F800 /* MovieLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610298CE2514F45C0032F800 /* MovieLoadingView.swift */; };
 		610298D1251502010032F800 /* MoviesImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610298D0251502010032F800 /* MoviesImages.swift */; };
 		610298D3251502120032F800 /* Backdrop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610298D2251502120032F800 /* Backdrop.swift */; };
+		610526C7251A5B6100015C8F /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610526C6251A5B6100015C8F /* MainTabBarViewController.swift */; };
+		610526CC251A5BBB00015C8F /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610526CB251A5BBB00015C8F /* SearchViewController.swift */; };
+		610526D1251A5BDC00015C8F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610526D0251A5BDC00015C8F /* LoginViewController.swift */; };
+		610526D6251A613000015C8F /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610526D5251A613000015C8F /* SearchService.swift */; };
 		618FF9922513858200640B41 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618FF9912513858200640B41 /* AppDelegate.swift */; };
 		618FF9942513858200640B41 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618FF9932513858200640B41 /* SceneDelegate.swift */; };
 		618FF9962513858200640B41 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618FF9952513858200640B41 /* HomeViewController.swift */; };
@@ -65,6 +69,10 @@
 		610298CE2514F45C0032F800 /* MovieLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieLoadingView.swift; sourceTree = "<group>"; };
 		610298D0251502010032F800 /* MoviesImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesImages.swift; sourceTree = "<group>"; };
 		610298D2251502120032F800 /* Backdrop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Backdrop.swift; sourceTree = "<group>"; };
+		610526C6251A5B6100015C8F /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
+		610526CB251A5BBB00015C8F /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		610526D0251A5BDC00015C8F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		610526D5251A613000015C8F /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
 		618FF98E2513858200640B41 /* Unsecured App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Unsecured App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		618FF9912513858200640B41 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		618FF9932513858200640B41 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -131,6 +139,30 @@
 			path = MovieLoading;
 			sourceTree = "<group>";
 		};
+		610526C5251A5B4300015C8F /* TabBarView */ = {
+			isa = PBXGroup;
+			children = (
+				610526C6251A5B6100015C8F /* MainTabBarViewController.swift */,
+			);
+			path = TabBarView;
+			sourceTree = "<group>";
+		};
+		610526CA251A5BA600015C8F /* SearchView */ = {
+			isa = PBXGroup;
+			children = (
+				610526CB251A5BBB00015C8F /* SearchViewController.swift */,
+			);
+			path = SearchView;
+			sourceTree = "<group>";
+		};
+		610526CF251A5BBE00015C8F /* LoginView */ = {
+			isa = PBXGroup;
+			children = (
+				610526D0251A5BDC00015C8F /* LoginViewController.swift */,
+			);
+			path = LoginView;
+			sourceTree = "<group>";
+		};
 		618FF9852513858200640B41 = {
 			isa = PBXGroup;
 			children = (
@@ -174,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				618FF9CC25138E7900640B41 /* MovieService.swift */,
+				610526D5251A613000015C8F /* SearchService.swift */,
 			);
 			path = EndPoint;
 			sourceTree = "<group>";
@@ -246,6 +279,9 @@
 		618FF9D0251397DA00640B41 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				610526CF251A5BBE00015C8F /* LoginView */,
+				610526CA251A5BA600015C8F /* SearchView */,
+				610526C5251A5B4300015C8F /* TabBarView */,
 				610298CD2514F43B0032F800 /* MovieLoading */,
 				61C7F66D2513CDCB00CB7208 /* Cells */,
 				61C7F6702513E70600CB7208 /* Headers */,
@@ -382,8 +418,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				610526D1251A5BDC00015C8F /* LoginViewController.swift in Sources */,
 				61D0B12425152A090089AF73 /* BackdropBanerCell.swift in Sources */,
 				618FF9C62513886B00640B41 /* EndPointType.swift in Sources */,
+				610526D6251A613000015C8F /* SearchService.swift in Sources */,
 				610298C12514ECAA0032F800 /* SpokenLanguage.swift in Sources */,
 				61C7F66325139A1C00CB7208 /* SelfConfiguringCell.swift in Sources */,
 				61C7F66725139AFF00CB7208 /* MoviesCarouselCell.swift in Sources */,
@@ -407,9 +445,11 @@
 				61D0B1202515208E0089AF73 /* Cast.swift in Sources */,
 				610298D3251502120032F800 /* Backdrop.swift in Sources */,
 				618FF9C02513886B00640B41 /* Parameters.swift in Sources */,
+				610526C7251A5B6100015C8F /* MainTabBarViewController.swift in Sources */,
 				618FF9BB2513886B00640B41 /* ParameterEncoding.swift in Sources */,
 				61D0B11E2515207D0089AF73 /* Credits.swift in Sources */,
 				610298CF2514F45C0032F800 /* MovieLoadingView.swift in Sources */,
+				610526CC251A5BBB00015C8F /* SearchViewController.swift in Sources */,
 				618FF9BD2513886B00640B41 /* EncodingError.swift in Sources */,
 				618FF9C42513886B00640B41 /* Router.swift in Sources */,
 				618FF9C32513886B00640B41 /* HTTPMethod.swift in Sources */,

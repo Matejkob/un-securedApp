@@ -18,6 +18,7 @@ enum MovieService: EndPointType {
     case upcoming(page: Int)
     case details(movieId: Int)
     case images(movieId: Int)
+    case videos(movieId: Int)
     case recommendations(movieId: Int)
     case credits(movieId: Int)
     
@@ -37,6 +38,8 @@ enum MovieService: EndPointType {
             return "\(movieId)"
         case .images(let movieId):
             return "\(movieId)/images"
+        case .videos(let movieId):
+            return "\(movieId)/viedos"
         case .recommendations(let movieId):
             return "\(movieId)/recommendations"
         case .credits(let movieId):
@@ -46,7 +49,7 @@ enum MovieService: EndPointType {
     
     var httpMethod: HTTPMethod {
         switch self {
-        case .nowPlaying, .popular, .topRated, .upcoming, .details, .images, .recommendations, .credits:
+        case .nowPlaying, .popular, .topRated, .upcoming, .details, .images, .recommendations, .credits, .videos:
             return .get
         }
     }
@@ -57,7 +60,7 @@ enum MovieService: EndPointType {
             let urlParameters: NSMutableDictionary = ["page": page]
             urlParameters.addEntries(from: Self.baseUrlParameters)
             return .requestParameters(bodyParameters: nil, urlParameters: urlParameters as? Parameters)
-        case .details, .recommendations:
+        case .details, .recommendations, .videos:
             return .requestParameters(bodyParameters: nil, urlParameters: Self.baseUrlParameters)
         case .images, .credits:
             return .requestParameters(bodyParameters: nil, urlParameters: ["api_key": "24bea9453e359d032e2fba722a9d8e4f"])

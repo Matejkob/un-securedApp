@@ -11,7 +11,8 @@ import Foundation
 struct Movie: Codable, Hashable {
     let posterPath: String?
     let adult: Bool
-    let overview, releaseDate: String
+    let overview: String
+    let releaseDate: String?
     let genreIDS: [Int]
     let id: Int
     let originalTitle: String
@@ -43,7 +44,7 @@ struct Movie: Codable, Hashable {
 extension Movie {
     static var releaseDateFormatter: DateFormatter {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-mm-dd"
+        dateFormatter.dateFormat = "yyyy-MM-dd"
         return dateFormatter
     }
 }
