@@ -22,6 +22,7 @@
 		610526CC251A5BBB00015C8F /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610526CB251A5BBB00015C8F /* SearchViewController.swift */; };
 		610526D1251A5BDC00015C8F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610526D0251A5BDC00015C8F /* LoginViewController.swift */; };
 		610526D6251A613000015C8F /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610526D5251A613000015C8F /* SearchService.swift */; };
+		615D4A83251A719B00A98321 /* MoviesListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615D4A82251A719B00A98321 /* MoviesListCell.swift */; };
 		618FF9922513858200640B41 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618FF9912513858200640B41 /* AppDelegate.swift */; };
 		618FF9942513858200640B41 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618FF9932513858200640B41 /* SceneDelegate.swift */; };
 		618FF9962513858200640B41 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618FF9952513858200640B41 /* HomeViewController.swift */; };
@@ -73,6 +74,7 @@
 		610526CB251A5BBB00015C8F /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		610526D0251A5BDC00015C8F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		610526D5251A613000015C8F /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
+		615D4A82251A719B00A98321 /* MoviesListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesListCell.swift; sourceTree = "<group>"; };
 		618FF98E2513858200640B41 /* Unsecured App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Unsecured App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		618FF9912513858200640B41 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		618FF9932513858200640B41 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -311,6 +313,7 @@
 		61C7F66D2513CDCB00CB7208 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				615D4A82251A719B00A98321 /* MoviesListCell.swift */,
 				61C7F66E2513CDD300CB7208 /* MoviesBanerCell.swift */,
 				61C7F66625139AFF00CB7208 /* MoviesCarouselCell.swift */,
 				61D0B12325152A090089AF73 /* BackdropBanerCell.swift */,
@@ -369,7 +372,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1170;
-				LastUpgradeCheck = 1170;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "Mateusz Bąk";
 				TargetAttributes = {
 					618FF98D2513858200640B41 = {
@@ -440,6 +443,7 @@
 				618FF9922513858200640B41 /* AppDelegate.swift in Sources */,
 				618FF9BC2513886B00640B41 /* URLParameterEncoder.swift in Sources */,
 				618FF9CD25138E7900640B41 /* MovieService.swift in Sources */,
+				615D4A83251A719B00A98321 /* MoviesListCell.swift in Sources */,
 				61D0B12A251557A20089AF73 /* TextCell.swift in Sources */,
 				610298BD2514EC1D0032F800 /* Genre.swift in Sources */,
 				61D0B1202515208E0089AF73 /* Cast.swift in Sources */,
@@ -504,6 +508,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -564,6 +569,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;

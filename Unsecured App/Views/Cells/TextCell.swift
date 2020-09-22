@@ -32,7 +32,7 @@ extension TextCell {
 
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = 8
-        attributedString.addAttribute(NSAttributedString.Key.paragraphStyle, value:paragraphStyle, range:NSMakeRange(0, attributedString.length))
+        attributedString.addAttribute(NSAttributedString.Key.paragraphStyle, value:paragraphStyle, range: NSMakeRange(0, attributedString.length))
         descriptionLabel.attributedText = attributedString
     }
 }

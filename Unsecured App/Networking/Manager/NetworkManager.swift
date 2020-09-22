@@ -12,6 +12,7 @@ protocol NetworkProvider {
 	associatedtype EndPoint: EndPointType
 	associatedtype Data: Decodable
 	func request(from route: EndPoint, completion: @escaping (NetworkResponse<Data, Error>) -> Void)
+    func cancel()
 }
 
 enum NetworkResponse<T, Error> {
@@ -55,6 +56,10 @@ extension NetworkManager: NetworkProvider {
 			}
 		}
 	}
+    
+    func cancel() {
+        router.cancel()
+    }
 }
 
 extension NetworkManager {
