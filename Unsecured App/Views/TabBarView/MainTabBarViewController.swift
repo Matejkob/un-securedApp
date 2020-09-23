@@ -25,7 +25,7 @@ private extension MainTabBarViewController {
         var viewControllersArray = [UIViewController]()
         viewControllersArray.append(buildTab(viewController: HomeViewController(), title: "Filmy", image: UIImage(systemName: "film")!, selectedImage: UIImage(systemName: "film")!))
         viewControllersArray.append(buildTab(viewController: SearchViewController(), title: "Wyszukiwarka", image: UIImage(systemName: "magnifyingglass")!, selectedImage: UIImage(systemName: "magnifyingglass")!))
-        viewControllersArray.append(buildTab(viewController: LoginViewController(), title: "Profil", image: UIImage(systemName: "person")!, selectedImage: UIImage(systemName: "person")!))
+        viewControllersArray.append(buildTab(viewController: ProfileViewController(), title: "Profil", image: UIImage(systemName: "person")!, selectedImage: UIImage(systemName: "person")!))
         viewControllers = viewControllersArray
     }
 }

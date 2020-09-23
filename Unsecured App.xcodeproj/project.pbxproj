@@ -22,6 +22,8 @@
 		610526CC251A5BBB00015C8F /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610526CB251A5BBB00015C8F /* SearchViewController.swift */; };
 		610526D1251A5BDC00015C8F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610526D0251A5BDC00015C8F /* LoginViewController.swift */; };
 		610526D6251A613000015C8F /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610526D5251A613000015C8F /* SearchService.swift */; };
+		613A6E3E251BCCF9003D7FF0 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613A6E3D251BCCF9003D7FF0 /* ProfileViewController.swift */; };
+		613A6E43251BD7EA003D7FF0 /* UITextFieldPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613A6E42251BD7EA003D7FF0 /* UITextFieldPadding.swift */; };
 		615D4A83251A719B00A98321 /* MoviesListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615D4A82251A719B00A98321 /* MoviesListCell.swift */; };
 		618FF9922513858200640B41 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618FF9912513858200640B41 /* AppDelegate.swift */; };
 		618FF9942513858200640B41 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618FF9932513858200640B41 /* SceneDelegate.swift */; };
@@ -74,6 +76,8 @@
 		610526CB251A5BBB00015C8F /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		610526D0251A5BDC00015C8F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		610526D5251A613000015C8F /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
+		613A6E3D251BCCF9003D7FF0 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		613A6E42251BD7EA003D7FF0 /* UITextFieldPadding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldPadding.swift; sourceTree = "<group>"; };
 		615D4A82251A719B00A98321 /* MoviesListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesListCell.swift; sourceTree = "<group>"; };
 		618FF98E2513858200640B41 /* Unsecured App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Unsecured App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		618FF9912513858200640B41 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -163,6 +167,22 @@
 				610526D0251A5BDC00015C8F /* LoginViewController.swift */,
 			);
 			path = LoginView;
+			sourceTree = "<group>";
+		};
+		613A6E3C251BCCEC003D7FF0 /* ProfileView */ = {
+			isa = PBXGroup;
+			children = (
+				613A6E3D251BCCF9003D7FF0 /* ProfileViewController.swift */,
+			);
+			path = ProfileView;
+			sourceTree = "<group>";
+		};
+		613A6E41251BD7E0003D7FF0 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				613A6E42251BD7EA003D7FF0 /* UITextFieldPadding.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		618FF9852513858200640B41 = {
@@ -281,6 +301,8 @@
 		618FF9D0251397DA00640B41 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				613A6E41251BD7E0003D7FF0 /* Components */,
+				613A6E3C251BCCEC003D7FF0 /* ProfileView */,
 				610526CF251A5BBE00015C8F /* LoginView */,
 				610526CA251A5BA600015C8F /* SearchView */,
 				610526C5251A5B4300015C8F /* TabBarView */,
@@ -453,6 +475,7 @@
 				618FF9BB2513886B00640B41 /* ParameterEncoding.swift in Sources */,
 				61D0B11E2515207D0089AF73 /* Credits.swift in Sources */,
 				610298CF2514F45C0032F800 /* MovieLoadingView.swift in Sources */,
+				613A6E43251BD7EA003D7FF0 /* UITextFieldPadding.swift in Sources */,
 				610526CC251A5BBB00015C8F /* SearchViewController.swift in Sources */,
 				618FF9BD2513886B00640B41 /* EncodingError.swift in Sources */,
 				618FF9C42513886B00640B41 /* Router.swift in Sources */,
@@ -463,6 +486,7 @@
 				61D0B126251540340089AF73 /* MainHeader.swift in Sources */,
 				610298BF2514EC660032F800 /* ProductionCompany.swift in Sources */,
 				61D0B12C2517702D0089AF73 /* ImageViewer.swift in Sources */,
+				613A6E3E251BCCF9003D7FF0 /* ProfileViewController.swift in Sources */,
 				618FF9CB25138D8400640B41 /* Movie.swift in Sources */,
 				61D0B12825154E800089AF73 /* CastCell.swift in Sources */,
 			);
