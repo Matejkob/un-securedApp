@@ -18,7 +18,12 @@ final class MainTabBarViewController: UITabBarController {
 
 private extension MainTabBarViewController {
     func setupView() {
+        setupRootView()
         addTabs()
+    }
+    
+    func setupRootView() {
+        delegate = self
     }
     
     func addTabs() {
@@ -36,5 +41,19 @@ private extension MainTabBarViewController {
         let tabBarItem = UITabBarItem(title: title, image: image, selectedImage: selectedImage)
         navigationController.tabBarItem = tabBarItem
         return navigationController
+    }
+}
+
+extension MainTabBarViewController: UITabBarControllerDelegate {
+    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        if viewController.tabBarItem.title == "Profil" {
+            let loginViewController = LoginViewController {
+                
+            }
+            present(loginViewController, animated: true)
+            return false
+        }
+        
+        return true
     }
 }

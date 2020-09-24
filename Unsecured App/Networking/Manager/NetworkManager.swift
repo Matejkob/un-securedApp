@@ -35,15 +35,15 @@ extension NetworkManager: NetworkProvider {
 			}
 
 			guard let response = response as? HTTPURLResponse else {
-				// TODO: Add completion
+                completion(.failure(NetworkHTTPURLResponse.failed))
 				return
 			}
-			switch self.handleNetworkResponse(response) {
-				case .failure(let errorString):
-					print(errorString)
+			switch Self.handleNetworkResponse(response) {
+				case .failure(let error):
+                    completion(.failure(error))
 				case .success:
 					guard let data = data else {
-						// TODO: Add completion
+                        completion(.failure(NetworkHTTPURLResponse.failed))
 						return
 					}
 
@@ -63,25 +63,24 @@ extension NetworkManager: NetworkProvider {
 }
 
 extension NetworkManager {
-	private func handleNetworkResponse(_ response: HTTPURLResponse) -> NetworkHTTPURLResponseResult<String> {
+	private static func handleNetworkResponse(_ response: HTTPURLResponse) -> NetworkHTTPURLResponseResult<Error> {
 		switch response.statusCode {
 		case 200...299:
 			return .success
 		case 401...500:
-			return .failure(NetworkHTTPURLResponse.authenticationError.rawValue)
+			return .failure(NetworkHTTPURLResponse.authenticationError)
 		case 501...599:
-			return .failure(NetworkHTTPURLResponse.badRequest.rawValue)
+			return .failure(NetworkHTTPURLResponse.badRequest)
 		case 600:
-			return .failure(NetworkHTTPURLResponse.outdated.rawValue)
+			return .failure(NetworkHTTPURLResponse.outdated)
 		default:
-			return .failure(NetworkHTTPURLResponse.failed.rawValue)
+			return .failure(NetworkHTTPURLResponse.failed)
 		}
 	}
 }
 
 extension NetworkManager {
-	enum NetworkHTTPURLResponse: String {
-		case success
+	enum NetworkHTTPURLResponse: String, Error {
 		case authenticationError = "You need to be authenticated first."
 		case badRequest = "Bad request."
 		case outdated = "The url you requested is outdated."
@@ -90,8 +89,8 @@ extension NetworkManager {
 		case unableToDecode = "We could not decode the response."
 	}
 
-	enum NetworkHTTPURLResponseResult<String> {
+	enum NetworkHTTPURLResponseResult<Error> {
 		case success
-		case failure(String)
+		case failure(Error)
 	}
 }

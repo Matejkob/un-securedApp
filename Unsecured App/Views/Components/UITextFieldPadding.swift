@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class UITextFieldPadding : UITextField {
+final class UITextFieldPadding: UITextField {
     
     var padding = UIEdgeInsets(top: 4, left: 25, bottom: 4, right: 25)
     
