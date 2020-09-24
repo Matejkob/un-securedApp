@@ -29,6 +29,10 @@
 		613A6E50251CE042003D7FF0 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613A6E4F251CE042003D7FF0 /* Session.swift */; };
 		613A6E53251CE0A3003D7FF0 /* DeleteSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613A6E52251CE0A3003D7FF0 /* DeleteSession.swift */; };
 		613A6E5E251D09F6003D7FF0 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613A6E5D251D09F6003D7FF0 /* AuthenticationManager.swift */; };
+		613A6E62251D2605003D7FF0 /* AccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613A6E61251D2605003D7FF0 /* AccountService.swift */; };
+		613A6E65251D27E9003D7FF0 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613A6E64251D27E9003D7FF0 /* Account.swift */; };
+		613A6E68251D2802003D7FF0 /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613A6E67251D2802003D7FF0 /* Avatar.swift */; };
+		613A6E6B251D2814003D7FF0 /* Gravatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613A6E6A251D2814003D7FF0 /* Gravatar.swift */; };
 		615D4A83251A719B00A98321 /* MoviesListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615D4A82251A719B00A98321 /* MoviesListCell.swift */; };
 		618FF9922513858200640B41 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618FF9912513858200640B41 /* AppDelegate.swift */; };
 		618FF9942513858200640B41 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618FF9932513858200640B41 /* SceneDelegate.swift */; };
@@ -88,6 +92,10 @@
 		613A6E4F251CE042003D7FF0 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		613A6E52251CE0A3003D7FF0 /* DeleteSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteSession.swift; sourceTree = "<group>"; };
 		613A6E5D251D09F6003D7FF0 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
+		613A6E61251D2605003D7FF0 /* AccountService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountService.swift; sourceTree = "<group>"; };
+		613A6E64251D27E9003D7FF0 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		613A6E67251D2802003D7FF0 /* Avatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Avatar.swift; sourceTree = "<group>"; };
+		613A6E6A251D2814003D7FF0 /* Gravatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gravatar.swift; sourceTree = "<group>"; };
 		615D4A82251A719B00A98321 /* MoviesListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesListCell.swift; sourceTree = "<group>"; };
 		618FF98E2513858200640B41 /* Unsecured App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Unsecured App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		618FF9912513858200640B41 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -257,6 +265,7 @@
 				613A6E48251CD54C003D7FF0 /* AuthenticationService.swift */,
 				618FF9CC25138E7900640B41 /* MovieService.swift */,
 				610526D5251A613000015C8F /* SearchService.swift */,
+				613A6E61251D2605003D7FF0 /* AccountService.swift */,
 			);
 			path = EndPoint;
 			sourceTree = "<group>";
@@ -297,21 +306,24 @@
 		618FF9C725138CD800640B41 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				613A6E64251D27E9003D7FF0 /* Account.swift */,
+				613A6E67251D2802003D7FF0 /* Avatar.swift */,
 				610298D2251502120032F800 /* Backdrop.swift */,
 				61D0B11F2515208E0089AF73 /* Cast.swift */,
 				61D0B11D2515207D0089AF73 /* Credits.swift */,
 				61D0B121251520A70089AF73 /* Crew.swift */,
+				613A6E52251CE0A3003D7FF0 /* DeleteSession.swift */,
 				610298BC2514EC1D0032F800 /* Genre.swift */,
+				613A6E6A251D2814003D7FF0 /* Gravatar.swift */,
 				618FF9CA25138D8400640B41 /* Movie.swift */,
 				610298BA2514EBB80032F800 /* MovieDetails.swift */,
 				618FF9C825138CF300640B41 /* Movies.swift */,
 				610298D0251502010032F800 /* MoviesImages.swift */,
 				610298BE2514EC660032F800 /* ProductionCompany.swift */,
 				610298C22514EDBD0032F800 /* ProductionCountry.swift */,
-				610298C02514ECAA0032F800 /* SpokenLanguage.swift */,
 				613A6E4C251CDEAC003D7FF0 /* RequestToken.swift */,
-				613A6E52251CE0A3003D7FF0 /* DeleteSession.swift */,
 				613A6E4F251CE042003D7FF0 /* Session.swift */,
+				610298C02514ECAA0032F800 /* SpokenLanguage.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -503,7 +515,10 @@
 				61D0B12A251557A20089AF73 /* TextCell.swift in Sources */,
 				613A6E5E251D09F6003D7FF0 /* AuthenticationManager.swift in Sources */,
 				610298BD2514EC1D0032F800 /* Genre.swift in Sources */,
+				613A6E62251D2605003D7FF0 /* AccountService.swift in Sources */,
+				613A6E68251D2802003D7FF0 /* Avatar.swift in Sources */,
 				61D0B1202515208E0089AF73 /* Cast.swift in Sources */,
+				613A6E6B251D2814003D7FF0 /* Gravatar.swift in Sources */,
 				613A6E53251CE0A3003D7FF0 /* DeleteSession.swift in Sources */,
 				610298D3251502120032F800 /* Backdrop.swift in Sources */,
 				618FF9C02513886B00640B41 /* Parameters.swift in Sources */,
@@ -515,6 +530,7 @@
 				610526CC251A5BBB00015C8F /* SearchViewController.swift in Sources */,
 				618FF9BD2513886B00640B41 /* EncodingError.swift in Sources */,
 				618FF9C42513886B00640B41 /* Router.swift in Sources */,
+				613A6E65251D27E9003D7FF0 /* Account.swift in Sources */,
 				618FF9C32513886B00640B41 /* HTTPMethod.swift in Sources */,
 				618FF9C52513886B00640B41 /* HTTPHeaders.swift in Sources */,
 				610298C62514EEBF0032F800 /* MovieDetailsViewController.swift in Sources */,
