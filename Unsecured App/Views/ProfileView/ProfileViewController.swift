@@ -16,9 +16,9 @@ final class ProfileViewController: UIViewController {
     private let avatarImageView = UIImageView()
     private let nameLabel = UILabel()
     private let usernameLabel = UILabel()
-    
     private let logoutButton = UIButton(type: .roundedRect)
     
+    private let authenticationManager: AuthenticationManagerProtocol = AuthenticationManager()
     private let accountNetworkManager = NetworkManager<AccountService, Account>()
     
     override func viewDidLoad() {
@@ -95,6 +95,7 @@ private extension ProfileViewController {
     func setupLogoutButton() {
         logoutButton.setTitle("Wyloguj", for: .normal)
         logoutButton.setTitleColor(.systemPink, for: .normal)
+        logoutButton.addTarget(self, action: #selector(logoutAction), for: .touchUpInside)
         
         view.addSubview(logoutButton)
         logoutButton.snp.makeConstraints { make in
@@ -102,12 +103,35 @@ private extension ProfileViewController {
             make.centerX.equalToSuperview()
         }
     }
+    
+    @objc func logoutAction() {
+        guard let sessionToken = authenticationManager.getSessionToken() else { return }
+        movieLoading.show(in: view)
+        let deleteSessionNetworkManager = NetworkManager<AuthenticationService, DeleteSession>()
+        deleteSessionNetworkManager.request(from: .deleteSession(sessionId: sessionToken)) { [weak self] result in
+            DispatchQueue.main.async {
+                self?.movieLoading.dissmis()
+            }
+            switch result {
+            case .success(let deleteSession):
+                if deleteSession.success {
+                    self?.authenticationManager.removeSessionToken()
+                    DispatchQueue.main.async {
+                        self?.tabBarController?.selectedIndex = 0
+                    }
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
 }
 
 private extension ProfileViewController {
     func fetchProfile() {
+        guard let sessionToken = authenticationManager.getSessionToken() else { return }
         movieLoading.show(in: view)
-        accountNetworkManager.request(from: .account(sessionId: "58acaaf4c6a8751838b0f92d3eab78a77555bf72")) { [weak self] result in
+        accountNetworkManager.request(from: .account(sessionId: sessionToken)) { [weak self] result in
             DispatchQueue.main.async {
                 self?.movieLoading.dissmis()
                 switch result {

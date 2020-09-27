@@ -10,9 +10,13 @@ import Foundation
 
 protocol AuthenticationManagerProtocol {
     func createSessionWith(username: String, password: String, completion: @escaping (Error?) -> Void)
+    func getSessionToken() -> String?
+    func removeSessionToken()
 }
 
 struct AuthenticationManager: AuthenticationManagerProtocol {
+    
+    private let databaseKey = "sessionToken"
     
     private let requestTokenNetworkManager = NetworkManager<AuthenticationService, RequestToken>()
     private let sessionNetworkManager = NetworkManager<AuthenticationService, Session>()
@@ -22,6 +26,14 @@ struct AuthenticationManager: AuthenticationManagerProtocol {
 extension AuthenticationManager {
     func createSessionWith(username: String, password: String, completion: @escaping (Error?) -> Void) {
         createRequestToken(username: username, password: password, completion: completion)
+    }
+    
+    func getSessionToken() -> String? {
+        UserDefaults.standard.value(forKey: databaseKey) as? String
+    }
+    
+    func removeSessionToken() {
+        UserDefaults.standard.removeObject(forKey: databaseKey)
     }
 }
 
@@ -52,8 +64,7 @@ private extension AuthenticationManager {
         sessionNetworkManager.request(from: .createSession(requestToken: requestToken)) { result in
             switch result {
             case .success(let session):
-                // TODO: Add saveing session in Keychain
-                print(session)
+                UserDefaults.standard.setValue(session.sessionID, forKey: databaseKey)
                 completion(nil)
             case .failure(let error):
                 completion(error)
