@@ -168,7 +168,7 @@ private extension LoginViewController {
     }
     
     func setupBackgroundImage() {
-        let backgroundImages = ["1", "2", "3", "4", "5", "6"].shuffled()
+        let backgroundImages = ["1", "2", "3", "4", "6"].shuffled()
         backgroundImageView.image = UIImage(named: backgroundImages.first ?? "1")
     }
 }

@@ -46,14 +46,14 @@ private extension MainTabBarViewController {
 
 extension MainTabBarViewController: UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
-        if viewController.tabBarItem.title == "Profil" {
-            let loginViewController = LoginViewController { [weak self] in
-                self?.selectedIndex = 2
-            }
-            present(loginViewController, animated: true)
-            return false
-        }
-        
+//        if viewController.tabBarItem.title == "Profil" {
+//            let loginViewController = LoginViewController { [weak self] in
+//                self?.selectedIndex = 2
+//            }
+//            present(loginViewController, animated: true)
+//            return false
+//        }
+//
         return true
     }
 }
