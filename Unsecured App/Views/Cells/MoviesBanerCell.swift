@@ -11,7 +11,7 @@ import Kingfisher
 
 final class MoviesBanerCell: UICollectionViewCell {
     
-    static var reuseIdentifier = "MoviesBanerCell"
+    static let reuseIdentifier = "MoviesBanerCell"
     
     private let backdropImageView = UIImageView()
     private let labelsStackView = UIStackView()

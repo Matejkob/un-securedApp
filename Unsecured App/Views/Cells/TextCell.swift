@@ -10,7 +10,7 @@ import UIKit
 
 final class TextCell: UICollectionViewCell {
     
-    static var reuseIdentifier = "TextCell"
+    static let reuseIdentifier = "TextCell"
     
     private let contentStackView = UIStackView()
     private let descriptionLabel = UILabel()

@@ -73,7 +73,7 @@ private extension LoginViewController {
     }
     
     @objc func dismissAction() {
-        print("kek")
+        dismiss(animated: true)
     }
     
     func setupContentStackView() {

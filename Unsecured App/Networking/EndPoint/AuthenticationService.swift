@@ -59,7 +59,5 @@ enum AuthenticationService: EndPointType {
         }
     }
     
-    var headers: HTTPHeaders? {
-        return nil
-    }
+    var headers: HTTPHeaders? { nil }
 }

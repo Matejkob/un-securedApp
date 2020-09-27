@@ -80,7 +80,7 @@ private extension ImageViewer {
 private extension ImageViewer {
     func fetchImage() {
         movieLoading.show(in: view)
-        imageView.kf.setImage(with: imageURL, completionHandler: { [weak self] _ in
+        imageView.kf.setImage(with: imageURL, options: [.transition(.fade(0.75))], completionHandler: { [weak self] _ in
             self?.movieLoading.dissmis()
         })
     }

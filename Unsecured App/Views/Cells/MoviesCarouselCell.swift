@@ -11,7 +11,7 @@ import Kingfisher
 
 final class MoviesCarouselCell: UICollectionViewCell {
     
-    static var reuseIdentifier = "MoviesCarouselCell"
+    static let reuseIdentifier = "MoviesCarouselCell"
     
     private let posterImageView = UIImageView()
     private let descriptionStackView = UIStackView()

@@ -10,7 +10,7 @@ import UIKit
 
 final class CastCell: UICollectionViewCell {
     
-    static var reuseIdentifier = "CastCell"
+    static let reuseIdentifier = "CastCell"
     
     private let contentStackView = UIStackView()
     private let profileImageView = UIImageView()

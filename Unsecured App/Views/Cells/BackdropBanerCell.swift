@@ -10,7 +10,7 @@ import UIKit
 
 final class BackdropBanerCell: UICollectionViewCell {
     
-    static var reuseIdentifier = "BackdropBanerCell"
+    static let reuseIdentifier = "BackdropBanerCell"
     
     private let contentStackView = UIStackView()
     private let backdropImageView = UIImageView()
