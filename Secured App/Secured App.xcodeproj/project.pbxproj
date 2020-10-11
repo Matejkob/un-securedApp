@@ -35,6 +35,8 @@
 		613A6E6B251D2814003D7FF0 /* Gravatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613A6E6A251D2814003D7FF0 /* Gravatar.swift */; };
 		615D4A83251A719B00A98321 /* MoviesListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615D4A82251A719B00A98321 /* MoviesListCell.swift */; };
 		617F26812532F13C00573D0F /* Configurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617F26802532F13C00573D0F /* Configurator.swift */; };
+		617F268F253303E400573D0F /* KeychainOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617F268E253303E400573D0F /* KeychainOperations.swift */; };
+		617F2693253303EB00573D0F /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617F2692253303EB00573D0F /* KeychainWrapper.swift */; };
 		618FF9922513858200640B41 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618FF9912513858200640B41 /* AppDelegate.swift */; };
 		618FF9942513858200640B41 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618FF9932513858200640B41 /* SceneDelegate.swift */; };
 		618FF9962513858200640B41 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618FF9952513858200640B41 /* HomeViewController.swift */; };
@@ -99,6 +101,8 @@
 		613A6E6A251D2814003D7FF0 /* Gravatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gravatar.swift; sourceTree = "<group>"; };
 		615D4A82251A719B00A98321 /* MoviesListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesListCell.swift; sourceTree = "<group>"; };
 		617F26802532F13C00573D0F /* Configurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurator.swift; sourceTree = "<group>"; };
+		617F268E253303E400573D0F /* KeychainOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainOperations.swift; sourceTree = "<group>"; };
+		617F2692253303EB00573D0F /* KeychainWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
 		618FF98E2513858200640B41 /* Secured App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Secured App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		618FF9912513858200640B41 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		618FF9932513858200640B41 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -228,6 +232,15 @@
 				617F26802532F13C00573D0F /* Configurator.swift */,
 			);
 			path = Configurator;
+			sourceTree = "<group>";
+		};
+		617F268B253303BA00573D0F /* KeychainWrapper */ = {
+			isa = PBXGroup;
+			children = (
+				617F268E253303E400573D0F /* KeychainOperations.swift */,
+				617F2692253303EB00573D0F /* KeychainWrapper.swift */,
+			);
+			path = KeychainWrapper;
 			sourceTree = "<group>";
 		};
 		618FF9852513858200640B41 = {
@@ -381,6 +394,7 @@
 		61C7F66125139A0C00CB7208 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				617F268B253303BA00573D0F /* KeychainWrapper */,
 				61C7F66225139A1C00CB7208 /* SelfConfiguringCell.swift */,
 			);
 			path = Utils;
@@ -528,6 +542,7 @@
 				610298BD2514EC1D0032F800 /* Genre.swift in Sources */,
 				613A6E62251D2605003D7FF0 /* AccountService.swift in Sources */,
 				613A6E68251D2802003D7FF0 /* Avatar.swift in Sources */,
+				617F2693253303EB00573D0F /* KeychainWrapper.swift in Sources */,
 				61D0B1202515208E0089AF73 /* Cast.swift in Sources */,
 				617F26812532F13C00573D0F /* Configurator.swift in Sources */,
 				613A6E6B251D2814003D7FF0 /* Gravatar.swift in Sources */,
@@ -537,6 +552,7 @@
 				610526C7251A5B6100015C8F /* MainTabBarViewController.swift in Sources */,
 				618FF9BB2513886B00640B41 /* ParameterEncoding.swift in Sources */,
 				61D0B11E2515207D0089AF73 /* Credits.swift in Sources */,
+				617F268F253303E400573D0F /* KeychainOperations.swift in Sources */,
 				610298CF2514F45C0032F800 /* MovieLoadingView.swift in Sources */,
 				613A6E43251BD7EA003D7FF0 /* UITextFieldPadding.swift in Sources */,
 				610526CC251A5BBB00015C8F /* SearchViewController.swift in Sources */,

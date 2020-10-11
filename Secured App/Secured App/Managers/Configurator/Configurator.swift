@@ -27,6 +27,8 @@ struct Configurator {
     
     // MARK: - Database
     
-    static let sessionIdDatabaseKey = "sessionToken"
+    static let keychainService = "keychainService"
+    
+    static let sessionIdDatabaseKey = "sessionIdDatabaseKey"
     
 }
