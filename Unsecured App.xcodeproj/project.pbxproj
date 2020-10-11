@@ -34,6 +34,7 @@
 		613A6E68251D2802003D7FF0 /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613A6E67251D2802003D7FF0 /* Avatar.swift */; };
 		613A6E6B251D2814003D7FF0 /* Gravatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613A6E6A251D2814003D7FF0 /* Gravatar.swift */; };
 		615D4A83251A719B00A98321 /* MoviesListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615D4A82251A719B00A98321 /* MoviesListCell.swift */; };
+		617F26812532F13C00573D0F /* Configurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617F26802532F13C00573D0F /* Configurator.swift */; };
 		618FF9922513858200640B41 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618FF9912513858200640B41 /* AppDelegate.swift */; };
 		618FF9942513858200640B41 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618FF9932513858200640B41 /* SceneDelegate.swift */; };
 		618FF9962513858200640B41 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618FF9952513858200640B41 /* HomeViewController.swift */; };
@@ -97,6 +98,7 @@
 		613A6E67251D2802003D7FF0 /* Avatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Avatar.swift; sourceTree = "<group>"; };
 		613A6E6A251D2814003D7FF0 /* Gravatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gravatar.swift; sourceTree = "<group>"; };
 		615D4A82251A719B00A98321 /* MoviesListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesListCell.swift; sourceTree = "<group>"; };
+		617F26802532F13C00573D0F /* Configurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurator.swift; sourceTree = "<group>"; };
 		618FF98E2513858200640B41 /* Unsecured App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Unsecured App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		618FF9912513858200640B41 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		618FF9932513858200640B41 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 		613A6E5B251D09DB003D7FF0 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				617F267F2532F13300573D0F /* Configurator */,
 				613A6E5C251D09E2003D7FF0 /* Authentication */,
 			);
 			path = Managers;
@@ -217,6 +220,14 @@
 				613A6E5D251D09F6003D7FF0 /* AuthenticationManager.swift */,
 			);
 			path = Authentication;
+			sourceTree = "<group>";
+		};
+		617F267F2532F13300573D0F /* Configurator */ = {
+			isa = PBXGroup;
+			children = (
+				617F26802532F13C00573D0F /* Configurator.swift */,
+			);
+			path = Configurator;
 			sourceTree = "<group>";
 		};
 		618FF9852513858200640B41 = {
@@ -518,6 +529,7 @@
 				613A6E62251D2605003D7FF0 /* AccountService.swift in Sources */,
 				613A6E68251D2802003D7FF0 /* Avatar.swift in Sources */,
 				61D0B1202515208E0089AF73 /* Cast.swift in Sources */,
+				617F26812532F13C00573D0F /* Configurator.swift in Sources */,
 				613A6E6B251D2814003D7FF0 /* Gravatar.swift in Sources */,
 				613A6E53251CE0A3003D7FF0 /* DeleteSession.swift in Sources */,
 				610298D3251502120032F800 /* Backdrop.swift in Sources */,

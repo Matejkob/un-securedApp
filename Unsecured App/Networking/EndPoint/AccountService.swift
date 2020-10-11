@@ -31,7 +31,7 @@ enum AccountService: EndPointType {
     var task: HTTPTask {
         switch self {
         case .account(let sessionId):
-            return .requestParameters(bodyParameters: nil, urlParameters: ["api_key": "24bea9453e359d032e2fba722a9d8e4f", "session_id": sessionId])
+            return .requestParameters(bodyParameters: nil, urlParameters: ["api_key": Configurator.apiKey, "session_id": sessionId])
         }
     }
     

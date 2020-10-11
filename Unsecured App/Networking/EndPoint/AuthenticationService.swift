@@ -47,15 +47,15 @@ enum AuthenticationService: EndPointType {
     var task: HTTPTask {
         switch self {
         case .createRequestToken:
-            return .requestParameters(bodyParameters: nil, urlParameters: ["api_key": "24bea9453e359d032e2fba722a9d8e4f"])
+            return .requestParameters(bodyParameters: nil, urlParameters: ["api_key": Configurator.apiKey])
         case .createSession(let requestToken):
-            return .requestParameters(bodyParameters: ["request_token": requestToken], urlParameters: ["api_key": "24bea9453e359d032e2fba722a9d8e4f"])
+            return .requestParameters(bodyParameters: ["request_token": requestToken], urlParameters: ["api_key": Configurator.apiKey])
         case let .createSessionWithLogin(username, password, requestToken):
-            return .requestParameters(bodyParameters: ["username": username, "password": password, "request_token": requestToken], urlParameters: ["api_key": "24bea9453e359d032e2fba722a9d8e4f"])
+            return .requestParameters(bodyParameters: ["username": username, "password": password, "request_token": requestToken], urlParameters: ["api_key": Configurator.apiKey])
         case .createSessionFromAccessToken(let accessToken):
-            return .requestParameters(bodyParameters: ["access_token": accessToken], urlParameters: ["api_key": "24bea9453e359d032e2fba722a9d8e4f"])
+            return .requestParameters(bodyParameters: ["access_token": accessToken], urlParameters: ["api_key": Configurator.apiKey])
         case .deleteSession(let sessionId):
-            return .requestParameters(bodyParameters: ["session_id": sessionId], urlParameters: ["api_key": "24bea9453e359d032e2fba722a9d8e4f"])
+            return .requestParameters(bodyParameters: ["session_id": sessionId], urlParameters: ["api_key": Configurator.apiKey])
         }
     }
     

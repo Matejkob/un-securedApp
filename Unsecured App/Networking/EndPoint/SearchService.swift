@@ -10,7 +10,7 @@ import Foundation
 
 enum SearchService: EndPointType {
     
-    private static let baseUrlParameters: Parameters = ["api_key": "24bea9453e359d032e2fba722a9d8e4f", "language": "pl-PL"]
+    private static let baseUrlParameters: Parameters = ["api_key": Configurator.apiKey, "language": "pl-PL"]
     
     case movie(query: String, page: Int)
     

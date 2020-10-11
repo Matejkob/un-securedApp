@@ -10,7 +10,7 @@ import Foundation
 
 enum MovieService: EndPointType {
     
-    private static let baseUrlParameters: Parameters = ["api_key": "24bea9453e359d032e2fba722a9d8e4f", "language": "pl-PL"]
+    private static let baseUrlParameters: Parameters = ["api_key": Configurator.apiKey, "language": "pl-PL"]
     
     case nowPlaying(page: Int)
     case popular(page: Int)
@@ -63,7 +63,7 @@ enum MovieService: EndPointType {
         case .details, .recommendations, .videos:
             return .requestParameters(bodyParameters: nil, urlParameters: Self.baseUrlParameters)
         case .images, .credits:
-            return .requestParameters(bodyParameters: nil, urlParameters: ["api_key": "24bea9453e359d032e2fba722a9d8e4f"])
+            return .requestParameters(bodyParameters: nil, urlParameters: ["api_key": Configurator.apiKey])
         }
     }
     

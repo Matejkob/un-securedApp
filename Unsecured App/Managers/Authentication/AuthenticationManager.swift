@@ -15,9 +15,7 @@ protocol AuthenticationManagerProtocol {
 }
 
 struct AuthenticationManager: AuthenticationManagerProtocol {
-    
-    private let databaseKey = "sessionToken"
-    
+        
     private let requestTokenNetworkManager = NetworkManager<AuthenticationService, RequestToken>()
     private let sessionNetworkManager = NetworkManager<AuthenticationService, Session>()
     
@@ -29,11 +27,11 @@ extension AuthenticationManager {
     }
     
     func getSessionToken() -> String? {
-        UserDefaults.standard.value(forKey: databaseKey) as? String
+        UserDefaults.standard.value(forKey: Configurator.sessionIdDatabaseKey) as? String
     }
     
     func removeSessionToken() {
-        UserDefaults.standard.removeObject(forKey: databaseKey)
+        UserDefaults.standard.removeObject(forKey: Configurator.sessionIdDatabaseKey)
     }
 }
 
@@ -64,7 +62,7 @@ private extension AuthenticationManager {
         sessionNetworkManager.request(from: .createSession(requestToken: requestToken)) { result in
             switch result {
             case .success(let session):
-                UserDefaults.standard.setValue(session.sessionID, forKey: databaseKey)
+                UserDefaults.standard.setValue(session.sessionID, forKey: Configurator.sessionIdDatabaseKey)
                 completion(nil)
             case .failure(let error):
                 completion(error)
