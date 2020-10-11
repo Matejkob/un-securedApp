@@ -12,7 +12,3 @@ struct MoviesImages: Codable, Hashable {
     let id: Int
     let backdrops, posters: [Backdrop]
 }
-
-extension MoviesImages {
-    static let baseUrl = "https://image.tmdb.org/t/p/w780"
-}

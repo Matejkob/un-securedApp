@@ -377,13 +377,13 @@ extension MovieDetailsViewController: UICollectionViewDelegate {
             navigationController?.pushViewController(MovieDetailsViewController(movie: selectedViewMovieModel), animated: true)
         }
             
-        if let selectedBackdrop = selectedView.backdrop, let imageURL = URL(string: "https://image.tmdb.org/t/p/original" + selectedBackdrop.filePath) {
+        if let selectedBackdrop = selectedView.backdrop, let imageURL = URL(string: Configurator.originalImageBaseUrl + selectedBackdrop.filePath) {
             let imageViewer = ImageViewer(imageURL: imageURL)
             imageViewer.modalPresentationStyle = .pageSheet
             present(imageViewer, animated: true)
         }
             
-        if let profilePath = selectedView.cast?.profilePath, let imageURL = URL(string: "https://image.tmdb.org/t/p/original" + profilePath) {
+        if let profilePath = selectedView.cast?.profilePath, let imageURL = URL(string: Configurator.originalImageBaseUrl + profilePath) {
             let imageViewer = ImageViewer(imageURL: imageURL)
             imageViewer.modalPresentationStyle = .pageSheet
             present(imageViewer, animated: true)

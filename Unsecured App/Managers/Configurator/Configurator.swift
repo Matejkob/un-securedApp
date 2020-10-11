@@ -14,6 +14,16 @@ struct Configurator {
     
     static let apiKey = "24bea9453e359d032e2fba722a9d8e4f"
     
+    static let baseUrl = "https://api.themoviedb.org/3/"
+    
+    // MARK: - Images
+    
+    static let imageBaseUrl = "https://image.tmdb.org/t/p/w780"
+    
+    static let originalImageBaseUrl = "https://image.tmdb.org/t/p/original"
+    
+    static let gravataBaseUrl = "https://www.gravatar.com/avatar/"
+    
     
     // MARK: - Database
     

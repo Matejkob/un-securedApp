@@ -28,7 +28,7 @@ final class BackdropBanerCell: UICollectionViewCell {
 
 extension BackdropBanerCell {
     func configure(with backdrop: Backdrop) {
-        guard let url = URL(string: MoviesImages.baseUrl + backdrop.filePath) else {
+        guard let url = URL(string: Configurator.imageBaseUrl + backdrop.filePath) else {
             backdropImageView.image = nil
             return
         }

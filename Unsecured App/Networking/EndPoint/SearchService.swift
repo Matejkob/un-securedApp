@@ -14,7 +14,7 @@ enum SearchService: EndPointType {
     
     case movie(query: String, page: Int)
     
-    var baseURL: URL { URL(string: "https://api.themoviedb.org/3/search/")! }
+    var baseURL: URL { URL(string: Configurator.baseUrl + "search")! }
     
     var path: String {
         switch self {

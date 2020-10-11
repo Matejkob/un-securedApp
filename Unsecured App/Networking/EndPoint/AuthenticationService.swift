@@ -16,7 +16,7 @@ enum AuthenticationService: EndPointType {
     case createSessionFromAccessToken(accessToken: String)
     case deleteSession(sessionId: String)
     
-    var baseURL: URL { URL(string: "https://api.themoviedb.org/3/authentication/")! }
+    var baseURL: URL { URL(string: Configurator.baseUrl + "authentication")! }
     
     var path: String {
         switch self {

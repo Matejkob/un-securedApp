@@ -22,7 +22,7 @@ enum MovieService: EndPointType {
     case recommendations(movieId: Int)
     case credits(movieId: Int)
     
-    var baseURL: URL { URL(string: "https://api.themoviedb.org/3/movie/")! }
+    var baseURL: URL { URL(string: Configurator.baseUrl + "movie")! }
     
     var path: String {
         switch self {

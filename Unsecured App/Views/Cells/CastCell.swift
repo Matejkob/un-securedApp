@@ -36,7 +36,7 @@ extension CastCell {
     func configure(with cast: Cast) {
         nameLabel.text = cast.name
         characterLabel.text = cast.character
-        guard let profilePath = cast.profilePath, let url = URL(string: MoviesImages.baseUrl + profilePath) else {
+        guard let profilePath = cast.profilePath, let url = URL(string: Configurator.imageBaseUrl + profilePath) else {
             profileImageView.image = UIImage(systemName: "person.crop.circle.fill")?.withTintColor(.label)
             profileImageView.tintColor = .label
             profileImageView.contentMode = .scaleAspectFit

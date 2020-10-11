@@ -31,7 +31,7 @@ final class MoviesBanerCell: UICollectionViewCell {
 extension MoviesBanerCell: SelfConfiguringCell {
     func configure(with movie: Movie) {
         titleLabel.text = movie.title
-        guard let backdropPath = movie.backdropPath, let url = URL(string: MoviesImages.baseUrl + backdropPath) else {
+        guard let backdropPath = movie.backdropPath, let url = URL(string: Configurator.imageBaseUrl + backdropPath) else {
             backdropImageView.image = nil
             return
         }

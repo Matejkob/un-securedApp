@@ -12,7 +12,7 @@ enum AccountService: EndPointType {
     
     case account(sessionId: String)
     
-    var baseURL: URL { URL(string: "https://api.themoviedb.org/3")! }
+    var baseURL: URL { URL(string: Configurator.baseUrl)! }
     
     var path: String {
         switch self {

@@ -147,7 +147,7 @@ private extension ProfileViewController {
     func updateView(with account: Account) {
         nameLabel.text = account.name
         usernameLabel.text = account.username
-        guard let url = URL(string: "https://www.gravatar.com/avatar/" + account.avatar.gravatar.hash) else { return }
+        guard let url = URL(string: Configurator.gravataBaseUrl + account.avatar.gravatar.hash) else { return }
         avatarImageView.kf.setImage(with: url, options: [.transition(.fade(0.75))])
     }
 }
