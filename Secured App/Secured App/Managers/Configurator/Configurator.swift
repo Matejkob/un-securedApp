@@ -22,7 +22,7 @@ struct Configurator {
     
     static let originalImageBaseUrl = "http://image.tmdb.org/t/p/original"
     
-    static let gravataBaseUrl = "httpw://www.gravatar.com/avatar/"
+    static let gravataBaseUrl = "http://www.gravatar.com/avatar/"
     
     
     // MARK: - Database

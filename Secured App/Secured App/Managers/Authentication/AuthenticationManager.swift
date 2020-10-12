@@ -14,11 +14,15 @@ protocol AuthenticationManagerProtocol {
     func removeSessionToken()
 }
 
-struct AuthenticationManager: AuthenticationManagerProtocol {
+final class AuthenticationManager: AuthenticationManagerProtocol {
+    
+    static let shared = AuthenticationManager()
         
     private let requestTokenNetworkManager = NetworkManager<AuthenticationService, RequestToken>()
     private let sessionNetworkManager = NetworkManager<AuthenticationService, Session>()
     private let keychainWrapper: KeychainWrapperProtocol = KeychainWrapper(keychainOperations: KeychainOperations())
+    
+    private var sessionToken: String?
     
 }
 
@@ -28,9 +32,12 @@ extension AuthenticationManager {
     }
     
     func getSessionToken() -> String? {
+        if let sessionToken = sessionToken { return sessionToken }
+        
         do {
             guard let data = try keychainWrapper.get(account: Configurator.sessionIdDatabaseKey) else { return nil }
             let sessionToken = String(data: data, encoding: .utf8)
+            self.sessionToken = sessionToken
             return sessionToken
         } catch {
             print(error)
@@ -41,6 +48,7 @@ extension AuthenticationManager {
     func removeSessionToken() {
         do {
             try keychainWrapper.delete(account: Configurator.sessionIdDatabaseKey)
+            self.sessionToken = nil
         } catch {
             print(error)
         }
@@ -49,10 +57,10 @@ extension AuthenticationManager {
 
 private extension AuthenticationManager {
     func createRequestToken(username: String, password: String, completion: @escaping (Error?) -> Void) {
-        requestTokenNetworkManager.request(from: .createRequestToken) { result in
+        requestTokenNetworkManager.request(from: .createRequestToken) { [weak self] result in
             switch result {
             case .success(let requestToken):
-                createSessionWithLogin(username: username, password: password, requestToken: requestToken.requestToken, completion: completion)
+                self?.createSessionWithLogin(username: username, password: password, requestToken: requestToken.requestToken, completion: completion)
             case .failure(let error):
                 completion(error)
             }
@@ -60,10 +68,10 @@ private extension AuthenticationManager {
     }
     
     func createSessionWithLogin(username: String, password: String, requestToken: String, completion: @escaping (Error?) -> Void) {
-        requestTokenNetworkManager.request(from: .createSessionWithLogin(username: username, password: password, requestToken: requestToken)) { result in
+        requestTokenNetworkManager.request(from: .createSessionWithLogin(username: username, password: password, requestToken: requestToken)) { [weak self] result in
             switch result {
             case .success(let requestToken):
-                createSession(requestToken: requestToken.requestToken, completion: completion)
+                self?.createSession(requestToken: requestToken.requestToken, completion: completion)
             case .failure(let error):
                 completion(error)
             }
@@ -71,7 +79,9 @@ private extension AuthenticationManager {
     }
     
     func createSession(requestToken: String, completion: @escaping (Error?) -> Void) {
-        sessionNetworkManager.request(from: .createSession(requestToken: requestToken)) { result in
+        sessionNetworkManager.request(from: .createSession(requestToken: requestToken)) { [weak self] result in
+            guard let self = self else { completion(nil); return }
+            
             switch result {
             case .success(let session):
                 do {
@@ -79,7 +89,8 @@ private extension AuthenticationManager {
                         completion(nil)
                         return
                     }
-                    try keychainWrapper.set(value: sessionData, account: Configurator.sessionIdDatabaseKey)
+                    try self.keychainWrapper.set(value: sessionData, account: Configurator.sessionIdDatabaseKey)
+                    self.sessionToken = session.sessionID
                     
                     completion(nil)
                 } catch {
