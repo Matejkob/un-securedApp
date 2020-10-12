@@ -20,10 +20,14 @@ final class ProfileViewController: UIViewController {
     
     private let authenticationManager: AuthenticationManagerProtocol = AuthenticationManager()
     private let accountNetworkManager = NetworkManager<AccountService, Account>()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         fetchProfile()
     }
     
@@ -105,7 +109,7 @@ private extension ProfileViewController {
     }
     
     @objc func logoutAction() {
-        guard let sessionToken = authenticationManager.getSessionToken() else { return }
+        guard let sessionToken = AuthenticationManager.shared.getSessionToken() else { return }
         movieLoading.show(in: view)
         let deleteSessionNetworkManager = NetworkManager<AuthenticationService, DeleteSession>()
         deleteSessionNetworkManager.request(from: .deleteSession(sessionId: sessionToken)) { [weak self] result in
@@ -115,7 +119,7 @@ private extension ProfileViewController {
             switch result {
             case .success(let deleteSession):
                 if deleteSession.success {
-                    self?.authenticationManager.removeSessionToken()
+                    AuthenticationManager.shared.removeSessionToken()
                     DispatchQueue.main.async {
                         self?.tabBarController?.selectedIndex = 0
                     }
@@ -129,7 +133,7 @@ private extension ProfileViewController {
 
 private extension ProfileViewController {
     func fetchProfile() {
-        guard let sessionToken = authenticationManager.getSessionToken() else { return }
+        guard let sessionToken = AuthenticationManager.shared.getSessionToken() else { return }
         movieLoading.show(in: view)
         accountNetworkManager.request(from: .account(sessionId: sessionToken)) { [weak self] result in
             DispatchQueue.main.async {
