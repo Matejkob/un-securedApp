@@ -84,12 +84,14 @@ private extension KeychainOperations {
     }
     
     func add(value: Data, account: String) throws {
+        let access = SecAccessControlCreateWithFlags(nil, kSecAttrAccessibleWhenPasscodeSetThisDeviceOnly, SecAccessControlCreateFlags.userPresence, nil)
+        
         let status = SecItemAdd(
             [
                 kSecClass: kSecClassGenericPassword,
                 kSecAttrAccount: account,
                 kSecAttrService: Configurator.keychainService,
-                kSecAttrAccessible: kSecAttrAccessibleWhenPasscodeSetThisDeviceOnly,
+                kSecAttrAccessControl: access as Any,
                 kSecValueData: value
             ] as CFDictionary,
             nil
