@@ -18,6 +18,7 @@ struct AuthenticationManager: AuthenticationManagerProtocol {
         
     private let requestTokenNetworkManager = NetworkManager<AuthenticationService, RequestToken>()
     private let sessionNetworkManager = NetworkManager<AuthenticationService, Session>()
+    private let keychainWrapper: KeychainWrapperProtocol = KeychainWrapper(keychainOperations: KeychainOperations())
     
 }
 
@@ -27,11 +28,22 @@ extension AuthenticationManager {
     }
     
     func getSessionToken() -> String? {
-        UserDefaults.standard.value(forKey: Configurator.sessionIdDatabaseKey) as? String
+        do {
+            guard let data = try keychainWrapper.get(account: Configurator.sessionIdDatabaseKey) else { return nil }
+            let sessionToken = String(data: data, encoding: .utf8)
+            return sessionToken
+        } catch {
+            print(error)
+            return nil
+        }
     }
     
     func removeSessionToken() {
-        UserDefaults.standard.removeObject(forKey: Configurator.sessionIdDatabaseKey)
+        do {
+            try keychainWrapper.delete(account: Configurator.sessionIdDatabaseKey)
+        } catch {
+            print(error)
+        }
     }
 }
 
@@ -62,7 +74,17 @@ private extension AuthenticationManager {
         sessionNetworkManager.request(from: .createSession(requestToken: requestToken)) { result in
             switch result {
             case .success(let session):
-                UserDefaults.standard.setValue(session.sessionID, forKey: Configurator.sessionIdDatabaseKey)
+                do {
+                    guard let sessionData = session.sessionID.data(using: .utf8) else {
+                        completion(nil)
+                        return
+                    }
+                    try keychainWrapper.set(value: sessionData, account: Configurator.sessionIdDatabaseKey)
+                    
+                    completion(nil)
+                } catch {
+                    completion(error)
+                }
                 completion(nil)
             case .failure(let error):
                 completion(error)
