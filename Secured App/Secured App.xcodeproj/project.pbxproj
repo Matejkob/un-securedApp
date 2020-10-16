@@ -37,6 +37,8 @@
 		617F26812532F13C00573D0F /* Configurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617F26802532F13C00573D0F /* Configurator.swift */; };
 		617F268F253303E400573D0F /* KeychainOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617F268E253303E400573D0F /* KeychainOperations.swift */; };
 		617F2693253303EB00573D0F /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617F2692253303EB00573D0F /* KeychainWrapper.swift */; };
+		617F269825375F9900573D0F /* JailbreakDetectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617F269725375F9900573D0F /* JailbreakDetectionService.swift */; };
+		617F269D25376E1300573D0F /* EmulatorDetectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617F269C25376E1300573D0F /* EmulatorDetectionService.swift */; };
 		618FF9922513858200640B41 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618FF9912513858200640B41 /* AppDelegate.swift */; };
 		618FF9942513858200640B41 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618FF9932513858200640B41 /* SceneDelegate.swift */; };
 		618FF9962513858200640B41 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618FF9952513858200640B41 /* HomeViewController.swift */; };
@@ -103,6 +105,8 @@
 		617F26802532F13C00573D0F /* Configurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurator.swift; sourceTree = "<group>"; };
 		617F268E253303E400573D0F /* KeychainOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainOperations.swift; sourceTree = "<group>"; };
 		617F2692253303EB00573D0F /* KeychainWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
+		617F269725375F9900573D0F /* JailbreakDetectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JailbreakDetectionService.swift; sourceTree = "<group>"; };
+		617F269C25376E1300573D0F /* EmulatorDetectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmulatorDetectionService.swift; sourceTree = "<group>"; };
 		618FF98E2513858200640B41 /* Secured App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Secured App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		618FF9912513858200640B41 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		618FF9932513858200640B41 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -212,6 +216,8 @@
 		613A6E5B251D09DB003D7FF0 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				617F269B25376DFD00573D0F /* EmulatorDetection */,
+				617F269625375F8C00573D0F /* JailbreakDetection */,
 				617F267F2532F13300573D0F /* Configurator */,
 				613A6E5C251D09E2003D7FF0 /* Authentication */,
 			);
@@ -241,6 +247,22 @@
 				617F2692253303EB00573D0F /* KeychainWrapper.swift */,
 			);
 			path = KeychainWrapper;
+			sourceTree = "<group>";
+		};
+		617F269625375F8C00573D0F /* JailbreakDetection */ = {
+			isa = PBXGroup;
+			children = (
+				617F269725375F9900573D0F /* JailbreakDetectionService.swift */,
+			);
+			path = JailbreakDetection;
+			sourceTree = "<group>";
+		};
+		617F269B25376DFD00573D0F /* EmulatorDetection */ = {
+			isa = PBXGroup;
+			children = (
+				617F269C25376E1300573D0F /* EmulatorDetectionService.swift */,
+			);
+			path = EmulatorDetection;
 			sourceTree = "<group>";
 		};
 		618FF9852513858200640B41 = {
@@ -518,6 +540,7 @@
 				610298C12514ECAA0032F800 /* SpokenLanguage.swift in Sources */,
 				61C7F66325139A1C00CB7208 /* SelfConfiguringCell.swift in Sources */,
 				61C7F66725139AFF00CB7208 /* MoviesCarouselCell.swift in Sources */,
+				617F269825375F9900573D0F /* JailbreakDetectionService.swift in Sources */,
 				613A6E4D251CDEAC003D7FF0 /* RequestToken.swift in Sources */,
 				618FF9C925138CF300640B41 /* Movies.swift in Sources */,
 				618FF9C22513886B00640B41 /* HTTPTask.swift in Sources */,
@@ -540,6 +563,7 @@
 				61D0B12A251557A20089AF73 /* TextCell.swift in Sources */,
 				613A6E5E251D09F6003D7FF0 /* AuthenticationManager.swift in Sources */,
 				610298BD2514EC1D0032F800 /* Genre.swift in Sources */,
+				617F269D25376E1300573D0F /* EmulatorDetectionService.swift in Sources */,
 				613A6E62251D2605003D7FF0 /* AccountService.swift in Sources */,
 				613A6E68251D2802003D7FF0 /* Avatar.swift in Sources */,
 				617F2693253303EB00573D0F /* KeychainWrapper.swift in Sources */,
