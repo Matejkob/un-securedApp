@@ -39,6 +39,7 @@
 		617F2693253303EB00573D0F /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617F2692253303EB00573D0F /* KeychainWrapper.swift */; };
 		617F269825375F9900573D0F /* JailbreakDetectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617F269725375F9900573D0F /* JailbreakDetectionService.swift */; };
 		617F269D25376E1300573D0F /* EmulatorDetectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617F269C25376E1300573D0F /* EmulatorDetectionService.swift */; };
+		617F26A8253B197600573D0F /* Secured_App_Unit_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617F26A7253B197600573D0F /* Secured_App_Unit_Tests.swift */; };
 		618FF9922513858200640B41 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618FF9912513858200640B41 /* AppDelegate.swift */; };
 		618FF9942513858200640B41 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618FF9932513858200640B41 /* SceneDelegate.swift */; };
 		618FF9962513858200640B41 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618FF9952513858200640B41 /* HomeViewController.swift */; };
@@ -75,6 +76,16 @@
 		61D0B12C2517702D0089AF73 /* ImageViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D0B12B2517702D0089AF73 /* ImageViewer.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		617F26AA253B197600573D0F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 618FF9862513858200640B41 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 618FF98D2513858200640B41;
+			remoteInfo = "Secured App";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		610298BA2514EBB80032F800 /* MovieDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetails.swift; sourceTree = "<group>"; };
 		610298BC2514EC1D0032F800 /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
@@ -107,6 +118,9 @@
 		617F2692253303EB00573D0F /* KeychainWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
 		617F269725375F9900573D0F /* JailbreakDetectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JailbreakDetectionService.swift; sourceTree = "<group>"; };
 		617F269C25376E1300573D0F /* EmulatorDetectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmulatorDetectionService.swift; sourceTree = "<group>"; };
+		617F26A5253B197600573D0F /* Secured App Unit Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Secured App Unit Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		617F26A7253B197600573D0F /* Secured_App_Unit_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secured_App_Unit_Tests.swift; sourceTree = "<group>"; };
+		617F26A9253B197600573D0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		618FF98E2513858200640B41 /* Secured App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Secured App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		618FF9912513858200640B41 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		618FF9932513858200640B41 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -144,6 +158,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		617F26A2253B197600573D0F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		618FF98B2513858200640B41 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -265,10 +286,20 @@
 			path = EmulatorDetection;
 			sourceTree = "<group>";
 		};
+		617F26A6253B197600573D0F /* Secured App Unit Tests */ = {
+			isa = PBXGroup;
+			children = (
+				617F26A7253B197600573D0F /* Secured_App_Unit_Tests.swift */,
+				617F26A9253B197600573D0F /* Info.plist */,
+			);
+			path = "Secured App Unit Tests";
+			sourceTree = "<group>";
+		};
 		618FF9852513858200640B41 = {
 			isa = PBXGroup;
 			children = (
 				618FF9902513858200640B41 /* Secured App */,
+				617F26A6253B197600573D0F /* Secured App Unit Tests */,
 				618FF98F2513858200640B41 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -277,6 +308,7 @@
 			isa = PBXGroup;
 			children = (
 				618FF98E2513858200640B41 /* Secured App.app */,
+				617F26A5253B197600573D0F /* Secured App Unit Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -455,6 +487,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		617F26A4253B197600573D0F /* Secured App Unit Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 617F26AE253B197600573D0F /* Build configuration list for PBXNativeTarget "Secured App Unit Tests" */;
+			buildPhases = (
+				617F26A1253B197600573D0F /* Sources */,
+				617F26A2253B197600573D0F /* Frameworks */,
+				617F26A3253B197600573D0F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				617F26AB253B197600573D0F /* PBXTargetDependency */,
+			);
+			name = "Secured App Unit Tests";
+			productName = "Secured App Unit Tests";
+			productReference = 617F26A5253B197600573D0F /* Secured App Unit Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		618FF98D2513858200640B41 /* Secured App */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 618FF9A22513858400640B41 /* Build configuration list for PBXNativeTarget "Secured App" */;
@@ -483,10 +533,14 @@
 		618FF9862513858200640B41 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1170;
+				LastSwiftUpdateCheck = 1200;
 				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "Mateusz Bąk";
 				TargetAttributes = {
+					617F26A4253B197600573D0F = {
+						CreatedOnToolsVersion = 12.0.1;
+						TestTargetID = 618FF98D2513858200640B41;
+					};
 					618FF98D2513858200640B41 = {
 						CreatedOnToolsVersion = 11.7;
 					};
@@ -511,11 +565,19 @@
 			projectRoot = "";
 			targets = (
 				618FF98D2513858200640B41 /* Secured App */,
+				617F26A4253B197600573D0F /* Secured App Unit Tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		617F26A3253B197600573D0F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		618FF98C2513858200640B41 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -529,6 +591,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		617F26A1253B197600573D0F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				617F26A8253B197600573D0F /* Secured_App_Unit_Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		618FF98A2513858200640B41 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -598,6 +668,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		617F26AB253B197600573D0F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 618FF98D2513858200640B41 /* Secured App */;
+			targetProxy = 617F26AA253B197600573D0F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		618FF99C2513858400640B41 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -610,6 +688,48 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		617F26AC253B197600573D0F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9RSVCT9A9H;
+				INFOPLIST_FILE = "Secured App Unit Tests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mateusz.bak.Secured-App-Unit-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Secured App.app/Secured App";
+			};
+			name = Debug;
+		};
+		617F26AD253B197600573D0F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9RSVCT9A9H;
+				INFOPLIST_FILE = "Secured App Unit Tests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mateusz.bak.Secured-App-Unit-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Secured App.app/Secured App";
+			};
+			name = Release;
+		};
 		618FF9A02513858400640B41 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -767,6 +887,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		617F26AE253B197600573D0F /* Build configuration list for PBXNativeTarget "Secured App Unit Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				617F26AC253B197600573D0F /* Debug */,
+				617F26AD253B197600573D0F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		618FF9892513858200640B41 /* Build configuration list for PBXProject "Secured App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
