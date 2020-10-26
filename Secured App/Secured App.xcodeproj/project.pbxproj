@@ -22,6 +22,9 @@
 		610526CC251A5BBB00015C8F /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610526CB251A5BBB00015C8F /* SearchViewController.swift */; };
 		610526D1251A5BDC00015C8F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610526D0251A5BDC00015C8F /* LoginViewController.swift */; };
 		610526D6251A613000015C8F /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610526D5251A613000015C8F /* SearchService.swift */; };
+		610850F7254573F000D025A0 /* CertificateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610850F6254573F000D025A0 /* CertificateHelper.swift */; };
+		610851092545811100D025A0 /* themoviedb.org.cer in Resources */ = {isa = PBXBuildFile; fileRef = 610851072545811100D025A0 /* themoviedb.org.cer */; };
+		6108510A2545811100D025A0 /* medium.com.cer in Resources */ = {isa = PBXBuildFile; fileRef = 610851082545811100D025A0 /* medium.com.cer */; };
 		613A6E3E251BCCF9003D7FF0 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613A6E3D251BCCF9003D7FF0 /* ProfileViewController.swift */; };
 		613A6E43251BD7EA003D7FF0 /* UITextFieldPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613A6E42251BD7EA003D7FF0 /* UITextFieldPadding.swift */; };
 		613A6E49251CD54C003D7FF0 /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613A6E48251CD54C003D7FF0 /* AuthenticationService.swift */; };
@@ -33,6 +36,7 @@
 		613A6E65251D27E9003D7FF0 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613A6E64251D27E9003D7FF0 /* Account.swift */; };
 		613A6E68251D2802003D7FF0 /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613A6E67251D2802003D7FF0 /* Avatar.swift */; };
 		613A6E6B251D2814003D7FF0 /* Gravatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613A6E6A251D2814003D7FF0 /* Gravatar.swift */; };
+		6144E55C254774D1003A1EDC /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6144E55B254774D1003A1EDC /* LocationManager.swift */; };
 		615D4A83251A719B00A98321 /* MoviesListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615D4A82251A719B00A98321 /* MoviesListCell.swift */; };
 		617F26812532F13C00573D0F /* Configurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617F26802532F13C00573D0F /* Configurator.swift */; };
 		617F268F253303E400573D0F /* KeychainOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617F268E253303E400573D0F /* KeychainOperations.swift */; };
@@ -101,6 +105,9 @@
 		610526CB251A5BBB00015C8F /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		610526D0251A5BDC00015C8F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		610526D5251A613000015C8F /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
+		610850F6254573F000D025A0 /* CertificateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificateHelper.swift; sourceTree = "<group>"; };
+		610851072545811100D025A0 /* themoviedb.org.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = themoviedb.org.cer; sourceTree = "<group>"; };
+		610851082545811100D025A0 /* medium.com.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = medium.com.cer; sourceTree = "<group>"; };
 		613A6E3D251BCCF9003D7FF0 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		613A6E42251BD7EA003D7FF0 /* UITextFieldPadding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldPadding.swift; sourceTree = "<group>"; };
 		613A6E48251CD54C003D7FF0 /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
@@ -112,6 +119,7 @@
 		613A6E64251D27E9003D7FF0 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		613A6E67251D2802003D7FF0 /* Avatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Avatar.swift; sourceTree = "<group>"; };
 		613A6E6A251D2814003D7FF0 /* Gravatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gravatar.swift; sourceTree = "<group>"; };
+		6144E55B254774D1003A1EDC /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		615D4A82251A719B00A98321 /* MoviesListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesListCell.swift; sourceTree = "<group>"; };
 		617F26802532F13C00573D0F /* Configurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurator.swift; sourceTree = "<group>"; };
 		617F268E253303E400573D0F /* KeychainOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainOperations.swift; sourceTree = "<group>"; };
@@ -218,6 +226,14 @@
 			path = LoginView;
 			sourceTree = "<group>";
 		};
+		610850F5254573CC00D025A0 /* CertificateHelper */ = {
+			isa = PBXGroup;
+			children = (
+				610850F6254573F000D025A0 /* CertificateHelper.swift */,
+			);
+			path = CertificateHelper;
+			sourceTree = "<group>";
+		};
 		613A6E3C251BCCEC003D7FF0 /* ProfileView */ = {
 			isa = PBXGroup;
 			children = (
@@ -237,10 +253,13 @@
 		613A6E5B251D09DB003D7FF0 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				6144E55A254774CC003A1EDC /* LocationManager */,
+				613A6E5C251D09E2003D7FF0 /* Authentication */,
+				610850F5254573CC00D025A0 /* CertificateHelper */,
+				617F267F2532F13300573D0F /* Configurator */,
 				617F269B25376DFD00573D0F /* EmulatorDetection */,
 				617F269625375F8C00573D0F /* JailbreakDetection */,
-				617F267F2532F13300573D0F /* Configurator */,
-				613A6E5C251D09E2003D7FF0 /* Authentication */,
+				617F268B253303BA00573D0F /* KeychainWrapper */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -251,6 +270,14 @@
 				613A6E5D251D09F6003D7FF0 /* AuthenticationManager.swift */,
 			);
 			path = Authentication;
+			sourceTree = "<group>";
+		};
+		6144E55A254774CC003A1EDC /* LocationManager */ = {
+			isa = PBXGroup;
+			children = (
+				6144E55B254774D1003A1EDC /* LocationManager.swift */,
+			);
+			path = LocationManager;
 			sourceTree = "<group>";
 		};
 		617F267F2532F13300573D0F /* Configurator */ = {
@@ -316,6 +343,8 @@
 		618FF9902513858200640B41 /* Secured App */ = {
 			isa = PBXGroup;
 			children = (
+				610851082545811100D025A0 /* medium.com.cer */,
+				610851072545811100D025A0 /* themoviedb.org.cer */,
 				613A6E5B251D09DB003D7FF0 /* Managers */,
 				61C7F66125139A0C00CB7208 /* Utils */,
 				618FF9C725138CD800640B41 /* Models */,
@@ -448,7 +477,6 @@
 		61C7F66125139A0C00CB7208 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				617F268B253303BA00573D0F /* KeychainWrapper */,
 				61C7F66225139A1C00CB7208 /* SelfConfiguringCell.swift */,
 			);
 			path = Utils;
@@ -584,7 +612,9 @@
 			files = (
 				618FF99E2513858400640B41 /* LaunchScreen.storyboard in Resources */,
 				618FF99B2513858400640B41 /* Assets.xcassets in Resources */,
+				6108510A2545811100D025A0 /* medium.com.cer in Resources */,
 				610298CC2514F31F0032F800 /* movieLoading.json in Resources */,
+				610851092545811100D025A0 /* themoviedb.org.cer in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -641,10 +671,12 @@
 				617F26812532F13C00573D0F /* Configurator.swift in Sources */,
 				613A6E6B251D2814003D7FF0 /* Gravatar.swift in Sources */,
 				613A6E53251CE0A3003D7FF0 /* DeleteSession.swift in Sources */,
+				6144E55C254774D1003A1EDC /* LocationManager.swift in Sources */,
 				610298D3251502120032F800 /* Backdrop.swift in Sources */,
 				618FF9C02513886B00640B41 /* Parameters.swift in Sources */,
 				610526C7251A5B6100015C8F /* MainTabBarViewController.swift in Sources */,
 				618FF9BB2513886B00640B41 /* ParameterEncoding.swift in Sources */,
+				610850F7254573F000D025A0 /* CertificateHelper.swift in Sources */,
 				61D0B11E2515207D0089AF73 /* Credits.swift in Sources */,
 				617F268F253303E400573D0F /* KeychainOperations.swift in Sources */,
 				610298CF2514F45C0032F800 /* MovieLoadingView.swift in Sources */,

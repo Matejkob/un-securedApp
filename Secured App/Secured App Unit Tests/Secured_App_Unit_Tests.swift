@@ -10,7 +10,7 @@ import XCTest
 @testable import Secured_App
 
 final class Secured_App_Unit_Tests: XCTestCase {
-
+    
     func test_JailbreakDetectionServicePerformance() {
         measure {
             let _ = JailbreakDetectionService.isJailbroken()
