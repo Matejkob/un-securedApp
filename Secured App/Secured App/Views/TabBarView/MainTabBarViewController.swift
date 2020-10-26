@@ -12,6 +12,7 @@ final class MainTabBarViewController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        LocationManager.shared.requestAlwaysAuthorization()
         setupView()
     }
 }

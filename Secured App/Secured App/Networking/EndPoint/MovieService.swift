@@ -56,7 +56,12 @@ enum MovieService: EndPointType {
     
     var task: HTTPTask {
         switch self {
-        case .nowPlaying(let page), .popular(let page), .topRated(let page), .upcoming(let page):
+        case .nowPlaying(let page):
+            let urlParameters: NSMutableDictionary = ["page": page]
+            urlParameters.addEntries(from: ["region": LocationManager.shared.getRegionCode()])
+            urlParameters.addEntries(from: Self.baseUrlParameters)
+            return .requestParameters(bodyParameters: nil, urlParameters: urlParameters as? Parameters)
+        case .popular(let page), .topRated(let page), .upcoming(let page):
             let urlParameters: NSMutableDictionary = ["page": page]
             urlParameters.addEntries(from: Self.baseUrlParameters)
             return .requestParameters(bodyParameters: nil, urlParameters: urlParameters as? Parameters)
