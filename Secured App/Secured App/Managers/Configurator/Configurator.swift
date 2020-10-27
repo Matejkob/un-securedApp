@@ -10,9 +10,11 @@ import Foundation
 
 struct Configurator {
     
+    private static let o = Obfuscator()
+    
     // MARK: - API
     
-    static let apiKey = "24bea9453e359d032e2fba722a9d8e4f"
+    static let apiKey = o.reveal(key: [115, 68, 18, 33, 4, 85, 81, 82, 82, 17, 86, 123, 106, 43, 82, 89, 87, 6, 70, 39, 18, 17, 115, 87, 94, 4, 94, 5, 76, 0, 122, 53])
     
     static let baseUrl = "https://api.themoviedb.org/3/"
     
@@ -27,8 +29,8 @@ struct Configurator {
     
     // MARK: - Database
     
-    static let keychainService = "keychainService"
+    static let keychainService = o.reveal(key: [42, 21, 9, 39, 13, 13, 12, 9, 50, 17, 23, 56, 58, 44, 7])
     
-    static let sessionIdDatabaseKey = "sessionIdDatabaseKey"
+    static let sessionIdDatabaseKey = o.reveal(key: [50, 21, 3, 55, 12, 3, 11, 46, 5, 48, 4, 58, 50, 45, 3, 25, 0, 40, 17, 56])
     
 }

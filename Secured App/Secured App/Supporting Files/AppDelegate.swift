@@ -12,11 +12,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-//        if JailbreakDetectionService.isJailbroken() {
-////            fatalError("Attempting to run on a jailbreak") // TODO: Uncomment this line
-//            print("jailbroken 🤬😱🥶")
-//        }
-        
+        // Override point for customization after application launch.
         return true
     }
     

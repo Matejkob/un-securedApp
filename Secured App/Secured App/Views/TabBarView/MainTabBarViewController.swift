@@ -53,6 +53,19 @@ extension MainTabBarViewController: UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
         guard viewController.tabBarItem.title == "Profil" else { return true }
         
+        if JailbreakDetectionService.isJailbroken() {
+            let window = UIApplication.shared.windows.filter { $0.isKeyWindow }.first
+            
+            if let rootViewController = window?.rootViewController {
+                let alertController = UIAlertController(title: "Twoje urządzenie ma złamane zabezpieczenia producenta", message: "W związku z tym logowanie jest niemożliwe", preferredStyle: .alert)
+                alertController.addAction(.init(title: "OK", style: .cancel, handler: nil))
+                
+                rootViewController.present(alertController, animated: true)
+            }
+            
+            return false
+        }
+        
         if AuthenticationManager.shared.getSessionToken() == nil {
             presentLoginViewController()
             return false
