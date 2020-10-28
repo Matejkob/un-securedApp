@@ -39,6 +39,8 @@
 		6144E55C254774D1003A1EDC /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6144E55B254774D1003A1EDC /* LocationManager.swift */; };
 		6144E57025488F8A003A1EDC /* Obfuscator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6144E56F25488F8A003A1EDC /* Obfuscator.swift */; };
 		6144E5792548B44D003A1EDC /* ReverseEngineering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6144E5782548B44D003A1EDC /* ReverseEngineering.swift */; };
+		6144E5802548B87D003A1EDC /* RuntimeHook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6144E57F2548B87D003A1EDC /* RuntimeHook.swift */; };
+		6144E5852548B8CE003A1EDC /* FishHookChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6144E5842548B8CE003A1EDC /* FishHookChecker.swift */; };
 		615D4A83251A719B00A98321 /* MoviesListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615D4A82251A719B00A98321 /* MoviesListCell.swift */; };
 		617F26812532F13C00573D0F /* Configurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617F26802532F13C00573D0F /* Configurator.swift */; };
 		617F268F253303E400573D0F /* KeychainOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617F268E253303E400573D0F /* KeychainOperations.swift */; };
@@ -124,6 +126,8 @@
 		6144E55B254774D1003A1EDC /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		6144E56F25488F8A003A1EDC /* Obfuscator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Obfuscator.swift; sourceTree = "<group>"; };
 		6144E5782548B44D003A1EDC /* ReverseEngineering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReverseEngineering.swift; sourceTree = "<group>"; };
+		6144E57F2548B87D003A1EDC /* RuntimeHook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuntimeHook.swift; sourceTree = "<group>"; };
+		6144E5842548B8CE003A1EDC /* FishHookChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishHookChecker.swift; sourceTree = "<group>"; };
 		615D4A82251A719B00A98321 /* MoviesListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesListCell.swift; sourceTree = "<group>"; };
 		617F26802532F13C00573D0F /* Configurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurator.swift; sourceTree = "<group>"; };
 		617F268E253303E400573D0F /* KeychainOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainOperations.swift; sourceTree = "<group>"; };
@@ -257,6 +261,8 @@
 		613A6E5B251D09DB003D7FF0 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				6144E5832548B8BD003A1EDC /* FishHookChecker */,
+				6144E57E2548B874003A1EDC /* RuntimeHook */,
 				6144E5772548B43D003A1EDC /* ReverseEngineering */,
 				6144E56E25488F82003A1EDC /* Obfuscator */,
 				6144E55A254774CC003A1EDC /* LocationManager */,
@@ -300,6 +306,22 @@
 				6144E5782548B44D003A1EDC /* ReverseEngineering.swift */,
 			);
 			path = ReverseEngineering;
+			sourceTree = "<group>";
+		};
+		6144E57E2548B874003A1EDC /* RuntimeHook */ = {
+			isa = PBXGroup;
+			children = (
+				6144E57F2548B87D003A1EDC /* RuntimeHook.swift */,
+			);
+			path = RuntimeHook;
+			sourceTree = "<group>";
+		};
+		6144E5832548B8BD003A1EDC /* FishHookChecker */ = {
+			isa = PBXGroup;
+			children = (
+				6144E5842548B8CE003A1EDC /* FishHookChecker.swift */,
+			);
+			path = FishHookChecker;
 			sourceTree = "<group>";
 		};
 		617F267F2532F13300573D0F /* Configurator */ = {
@@ -683,6 +705,7 @@
 				618FF9BC2513886B00640B41 /* URLParameterEncoder.swift in Sources */,
 				618FF9CD25138E7900640B41 /* MovieService.swift in Sources */,
 				615D4A83251A719B00A98321 /* MoviesListCell.swift in Sources */,
+				6144E5802548B87D003A1EDC /* RuntimeHook.swift in Sources */,
 				61D0B12A251557A20089AF73 /* TextCell.swift in Sources */,
 				613A6E5E251D09F6003D7FF0 /* AuthenticationManager.swift in Sources */,
 				610298BD2514EC1D0032F800 /* Genre.swift in Sources */,
@@ -692,6 +715,7 @@
 				617F2693253303EB00573D0F /* KeychainWrapper.swift in Sources */,
 				61D0B1202515208E0089AF73 /* Cast.swift in Sources */,
 				617F26812532F13C00573D0F /* Configurator.swift in Sources */,
+				6144E5852548B8CE003A1EDC /* FishHookChecker.swift in Sources */,
 				613A6E6B251D2814003D7FF0 /* Gravatar.swift in Sources */,
 				613A6E53251CE0A3003D7FF0 /* DeleteSession.swift in Sources */,
 				6144E55C254774D1003A1EDC /* LocationManager.swift in Sources */,
