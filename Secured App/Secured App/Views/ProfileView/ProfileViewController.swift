@@ -124,8 +124,8 @@ private extension ProfileViewController {
                         self?.tabBarController?.selectedIndex = 0
                     }
                 }
-            case .failure(let error):
-                print(error)
+            case .failure:
+                break
             }
         }
     }
@@ -141,8 +141,8 @@ private extension ProfileViewController {
                 switch result {
                 case .success(let account):
                     self?.updateView(with: account)
-                case .failure(let error):
-                    print(error)
+                case .failure:
+                    break
                 }
             }
         }

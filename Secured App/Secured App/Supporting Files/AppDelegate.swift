@@ -13,15 +13,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         // Override point for customization after application launch.
-        if ReverseEngineeringToolsChecker.isReverseEngineered() {
-            fatalError("Stop using reverse engineering tools")
-        }
-        
         return true
     }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        if ReverseEngineeringToolsChecker.isReverseEngineered() {
+            fatalError("Stop using reverse engineering tools")
+        }
+        
+        guard let didApplicationFirstLaunched = UserDefaults.standard.value(forKey: "firstLaunchOfTheApplication") as? Bool, didApplicationFirstLaunched else {
+            UserDefaults.standard.set(true, forKey: "firstLaunchOfTheApplication")
+            try? KeychainWrapper(keychainOperations: KeychainOperations()).delete(account: Configurator.sessionIdDatabaseKey)
+            return true
+        }
+        
         return true
     }
 

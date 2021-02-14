@@ -40,7 +40,6 @@ extension AuthenticationManager {
             self.sessionToken = sessionToken
             return sessionToken
         } catch {
-            print(error)
             return nil
         }
     }
@@ -50,7 +49,7 @@ extension AuthenticationManager {
             try keychainWrapper.delete(account: Configurator.sessionIdDatabaseKey)
             self.sessionToken = nil
         } catch {
-            print(error)
+            
         }
     }
 }

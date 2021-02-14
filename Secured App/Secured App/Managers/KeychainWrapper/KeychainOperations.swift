@@ -37,7 +37,6 @@ struct KeychainOperations: KeychainOperationsProtocol {
             [
                 kSecClass: kSecClassGenericPassword,
                 kSecAttrAccount: account,
-                kSecAttrService: Configurator.keychainService,
                 kSecReturnData: true
             ] as CFDictionary,
             &result
@@ -57,8 +56,7 @@ struct KeychainOperations: KeychainOperationsProtocol {
         let status = SecItemDelete(
             [
                 kSecClass: kSecClassGenericPassword,
-                kSecAttrAccount: account,
-                kSecAttrService: Configurator.keychainService
+                kSecAttrAccount: account
             ] as CFDictionary
         )
         
@@ -73,7 +71,6 @@ private extension KeychainOperations {
             [
                 kSecClass: kSecClassGenericPassword,
                 kSecAttrAccount: account,
-                kSecAttrService: Configurator.keychainService,
             ] as CFDictionary,
             [
                 kSecValueData: value
@@ -90,7 +87,6 @@ private extension KeychainOperations {
             [
                 kSecClass: kSecClassGenericPassword,
                 kSecAttrAccount: account,
-                kSecAttrService: Configurator.keychainService,
                 kSecAttrAccessControl: access as Any,
                 kSecValueData: value
             ] as CFDictionary,

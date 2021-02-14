@@ -109,8 +109,8 @@ extension SearchViewController: UISearchBarDelegate {
                 snapshot.appendSections([movies])
                 snapshot.appendItems(movies.results, toSection: movies)
                 self?.dataSource?.apply(snapshot)
-            case .failure(let error):
-                print("Error: \(error)")
+            case .failure:
+                break
             }
         }
     }

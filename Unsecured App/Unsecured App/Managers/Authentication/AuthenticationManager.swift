@@ -62,7 +62,7 @@ private extension AuthenticationManager {
         sessionNetworkManager.request(from: .createSession(requestToken: requestToken)) { result in
             switch result {
             case .success(let session):
-                UserDefaults.standard.setValue(session.sessionID, forKey: Configurator.sessionIdDatabaseKey)
+                UserDefaults.standard.set(session.sessionID, forKey: Configurator.sessionIdDatabaseKey)
                 completion(nil)
             case .failure(let error):
                 completion(error)

@@ -100,8 +100,8 @@ private extension HomeViewController {
                 var nowPlayingMovies = nowPlayingMoviesResult
                 nowPlayingMovies.setType(.nowPlaying)
                 self?.moviesSections.append(nowPlayingMovies)
-            case .failure(let error):
-                print(error)
+            case .failure:
+                break
             }
             self?.dispatchGroup.leave()
         }
@@ -116,8 +116,8 @@ private extension HomeViewController {
                 var popularMovies = popularMoviesResult
                 popularMovies.setType(.popular)
                 self?.moviesSections.append(popularMovies)
-            case .failure(let error):
-                print(error)
+            case .failure:
+                break
             }
             self?.dispatchGroup.leave()
         }
@@ -132,8 +132,8 @@ private extension HomeViewController {
                 var topRatedMovies = topRatedMoviesResult
                 topRatedMovies.setType(.topRated)
                 self?.moviesSections.append(topRatedMovies)
-            case .failure(let error):
-                print(error)
+            case .failure:
+                break
             }
             self?.dispatchGroup.leave()
         }
@@ -148,8 +148,8 @@ private extension HomeViewController {
                 var upcomingMovies = upcomingMoviesResult
                 upcomingMovies.setType(.upcoming)
                 self?.moviesSections.append(upcomingMovies)
-            case .failure(let error):
-                print(error)
+            case .failure:
+                break
             }
             self?.dispatchGroup.leave()
         }

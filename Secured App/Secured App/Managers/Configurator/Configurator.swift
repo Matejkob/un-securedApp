@@ -28,9 +28,7 @@ struct Configurator {
     
     
     // MARK: - Database
-    
-    static let keychainService = o.reveal(key: [42, 21, 9, 39, 13, 13, 12, 9, 50, 17, 23, 56, 58, 44, 7])
-    
+        
     static let sessionIdDatabaseKey = o.reveal(key: [50, 21, 3, 55, 12, 3, 11, 46, 5, 48, 4, 58, 50, 45, 3, 25, 0, 40, 17, 56])
     
 }

@@ -13,7 +13,7 @@ final class ReverseEngineeringToolsChecker {
     
     private static let o = Obfuscator()
 
-    static func isReverseEngineered() -> Bool {
+    public static func isReverseEngineered() -> Bool {
         DYLDcheck() || suspiciousFilesExistenceCheck() || canOpenPortCheck()
     }
 }
@@ -62,7 +62,7 @@ private extension ReverseEngineeringToolsChecker {
 
         var serverAddress = sockaddr_in()
         serverAddress.sin_family = sa_family_t(AF_INET)
-        serverAddress.sin_addr.s_addr = inet_addr("127.0.0.1")
+        serverAddress.sin_addr.s_addr = inet_addr(o.reveal(key: [112, 66, 71, 106, 85, 66, 85, 73, 80]))
         serverAddress.sin_port = swapBytesIfNeeded(port: in_port_t(port))
         let sock = socket(AF_INET, SOCK_STREAM, 0)
 

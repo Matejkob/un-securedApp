@@ -31,13 +31,6 @@ final class Obfuscator {
             encrypted.append(t.element ^ cipher[t.offset % length])
         }
         
-        #if DEVELOPMENT
-        print("Salt used: \(self.salt)\n")
-        print("Swift Code:\n************")
-        print("// Original \"\(string)\"")
-        print("let key: [UInt8] = \(encrypted)\n")
-        #endif
-        
         return encrypted
     }
     

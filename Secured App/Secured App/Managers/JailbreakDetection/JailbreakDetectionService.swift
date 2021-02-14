@@ -13,7 +13,7 @@ struct JailbreakDetectionService {
     
     private static let o = Obfuscator()
     
-    static func isJailbroken() -> Bool {
+    public static func isJailbroken() -> Bool {
         var results = Array<Bool>()
         
         results.append(URLSchemesToForbiddenAppsCheck())
@@ -23,15 +23,7 @@ struct JailbreakDetectionService {
         results.append(callForkPossibilityCheck())
         results.append(suspiciousItemsInSymbolicLinksCheck())
         results.append(DYLDcheck())
-        
-        print("Check If URL Schemes To Forbidden Apps Works: \(URLSchemesToForbiddenAppsCheck())")
-        print("Check If Suspicious Files Existence: \(suspiciousFilesExistenceCheck())")
-        print("Check If Suspicious Files Can Be Opened: \(suspiciousFilesCanBeOpenedCheck())")
-        print("Check If Can Write To Restricted Directories: \(writeToRestrictedDirectoriesCheck())")
-        print("Check Possibility of call Fork: \(callForkPossibilityCheck())")
-        print("Check for suspicious items in symbolic links: \(suspiciousItemsInSymbolicLinksCheck())")
-        print("Check DYLD: \(DYLDcheck())")
-        
+    
         return results.contains { $0 }
     }
 }

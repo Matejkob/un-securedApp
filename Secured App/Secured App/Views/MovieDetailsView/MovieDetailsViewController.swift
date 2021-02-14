@@ -124,8 +124,8 @@ private extension MovieDetailsViewController {
                 }
                 let viewModel = ViewModel(title: self.movie.title, subtitle: releaseDateString, type: .backdropGallery, views: views)
                 self.sections.append(viewModel)
-            case .failure(let error):
-                print(error)
+            case .failure:
+                break
             }
             self.dispatchGroup.leave()
         }
@@ -140,8 +140,8 @@ private extension MovieDetailsViewController {
                 let view = View(movieDetails: movieDetails)
                 let viewModel = ViewModel(title: "Opis", type: .details, views: [view])
                 if let overview = movieDetails.overview, !overview.isEmpty { self?.sections.append(viewModel) }
-            case .failure(let error):
-                print(error)
+            case .failure:
+                break
             }
             self?.dispatchGroup.leave()
         }
@@ -157,8 +157,8 @@ private extension MovieDetailsViewController {
                 if views.isEmpty { break }
                 let viewModel = ViewModel(title: "Obsada", type: .cast, views: views)
                 self?.sections.append(viewModel)
-            case .failure(let error):
-                print(error)
+            case .failure:
+                break
             }
             self?.dispatchGroup.leave()
         }
@@ -174,8 +174,8 @@ private extension MovieDetailsViewController {
                 if views.isEmpty { break }
                 let viewModel = ViewModel(title: "Rekomendowane", subtitle: "Podobne do \(self?.movie.title ?? "")", type: .recommendationMovies, views: views)
                 self?.sections.append(viewModel)
-            case .failure(let error):
-                print(error)
+            case .failure:
+                break
             }
             self?.dispatchGroup.leave()
         }
